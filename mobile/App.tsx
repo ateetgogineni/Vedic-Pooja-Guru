@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { AstrologyProvider } from '@/lib/astrology-context';
 import { AuthProvider } from '@/lib/auth-context';
 import { PrefsProvider } from '@/lib/prefs-context';
 import { AppThemeProvider } from '@/lib/theme-context';
@@ -16,9 +17,11 @@ export default function App() {
         <AppThemeProvider>
           <AuthProvider>
             <PrefsProvider>
-              <NavigationContainer>
-                <RootNavigator />
-              </NavigationContainer>
+              <AstrologyProvider>
+                <NavigationContainer>
+                  <RootNavigator />
+                </NavigationContainer>
+              </AstrologyProvider>
             </PrefsProvider>
           </AuthProvider>
         </AppThemeProvider>
