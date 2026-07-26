@@ -1,7 +1,10 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { Session, User } from '@supabase/supabase-js';
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 
 import { supabase } from '@/lib/supabase';
+
+const GUEST_KEY = 'vedic-vidhi.guest';
 
 type AuthContextValue = {
   session: Session | null;
@@ -25,6 +28,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session);
       setIsLoading(false);
+    });
+    AsyncStorage.getItem(GUEST_KEY).then((v) => {
+      if (v === '1') setIsGuest(true);
     });
 
     const { data: listener } = supabase.auth.onAuthStateChange((_event, nextSession) => {
@@ -52,8 +58,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signOut: async () => {
         await supabase.auth.signOut();
         setIsGuest(false);
+        await AsyncStorage.removeItem(GUEST_KEY);
       },
-      continueAsGuest: () => setIsGuest(true),
+      continueAsGuest: () => {
+        setIsGuest(true);
+        AsyncStorage.setItem(GUEST_KEY, '1');
+      },
     }),
     [session, isLoading, isGuest],
   );
