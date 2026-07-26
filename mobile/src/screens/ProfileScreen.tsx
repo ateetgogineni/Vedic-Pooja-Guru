@@ -1,10 +1,12 @@
-import { Alert, Pressable, ScrollView, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Alert, Pressable, StyleSheet, View } from 'react-native';
 
 import { AppText } from '@/components/ui/app-text';
 import { Icon } from '@/components/ui/icon';
+import { Screen } from '@/components/ui/screen';
+import { TopBar } from '@/components/ui/top-bar';
 import { Radius, Spacing } from '@/constants/theme';
 import { useAuth } from '@/lib/auth-context';
+import { localize, useTranslation } from '@/lib/i18n';
 import { LANGUAGES, TRADITIONS, usePrefs } from '@/lib/prefs-context';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation } from '@/navigation/hooks';
@@ -44,11 +46,13 @@ function SettingsRow({
 export function ProfileScreen() {
   const { colors, scheme, setPreference } = useAppTheme();
   const { languageCode, traditionId } = usePrefs();
+  const { t } = useTranslation();
   const { user, isGuest, signOut } = useAuth();
   const navigation = useAppNavigation();
 
   const language = LANGUAGES.find((l) => l.code === languageCode)?.label ?? 'English';
-  const tradition = TRADITIONS.find((t) => t.id === traditionId)?.label ?? 'North Indian';
+  const traditionMatch = TRADITIONS.find((tr) => tr.id === traditionId);
+  const tradition = traditionMatch ? localize(traditionMatch.label, languageCode) : 'North Indian';
 
   const onSignOut = async () => {
     if (!isGuest) await signOut();
@@ -56,46 +60,46 @@ export function ProfileScreen() {
   };
 
   return (
-    <SafeAreaView edges={['top']} style={{ flex: 1, backgroundColor: colors.background }}>
-      <View style={[styles.header, { backgroundColor: colors.surface, borderBottomColor: colors.surfaceContainer }]}>
-        <AppText variant="mantraDisplay" color="primary">
-          Settings
+    <Screen scroll edges={['top', 'bottom']} contentStyle={styles.content}>
+      <TopBar title={t('profile.title')} />
+      <View>
+        <AppText variant="bodyLg" style={{ fontWeight: '600' }}>
+          {isGuest ? t('profile.browsingAsGuest') : user?.email}
         </AppText>
-      </View>
-      <ScrollView contentContainerStyle={styles.content}>
-        <View>
-          <AppText variant="bodyLg" style={{ fontWeight: '600' }}>
-            {isGuest ? 'Browsing as Guest' : user?.email}
+        {isGuest ? (
+          <AppText variant="bodyMd" color="onSurfaceVariant" style={{ marginTop: 2 }}>
+            {t('profile.signInToSave')}
           </AppText>
-          {isGuest ? (
-            <AppText variant="bodyMd" color="onSurfaceVariant" style={{ marginTop: 2 }}>
-              Sign in to save your plans and checklists across devices.
-            </AppText>
-          ) : null}
-        </View>
+        ) : null}
+      </View>
 
         <View style={[styles.card, { backgroundColor: colors.softSand, borderColor: colors.surfaceDim }]}>
           <SettingsRow
             icon="language"
-            label="Language"
+            label={t('profile.language')}
             value={language}
             onPress={() => navigation.navigate('Language', { from: 'settings' })}
           />
           <SettingsRow
             icon="explore"
-            label="Region/Tradition"
+            label={t('profile.regionTradition')}
             value={tradition}
             onPress={() => navigation.navigate('Tradition', { from: 'settings' })}
           />
           <SettingsRow
             icon="notifications"
-            label="Notifications"
-            onPress={() => Alert.alert('Notifications', 'Push notification preferences are coming in a future update.')}
+            label={t('profile.notifications')}
+            onPress={() => Alert.alert(t('profile.notifications'), t('profile.notificationsComingSoonBody'))}
           />
-          <SettingsRow icon="support-agent" label="Help & Support" onPress={() => navigation.navigate('Help')} />
+          <SettingsRow
+            icon="stars"
+            label={t('profile.astrologyProfile')}
+            onPress={() => navigation.navigate('AstrologyProfile')}
+          />
+          <SettingsRow icon="support-agent" label={t('profile.helpSupport')} onPress={() => navigation.navigate('Help')} />
           <SettingsRow
             icon="dark-mode"
-            label="Dark Mode"
+            label={t('profile.darkMode')}
             trailing={
               <Pressable
                 onPress={() => setPreference(scheme === 'dark' ? 'light' : 'dark')}
@@ -121,16 +125,14 @@ export function ProfileScreen() {
         >
           <Icon name="logout" color={colors.primaryContainer} size={18} />
           <AppText variant="labelSm" color="primaryContainer">
-            {isGuest ? 'SIGN IN' : 'SIGN OUT'}
+            {t(isGuest ? 'profile.signIn' : 'profile.signOut')}
           </AppText>
         </Pressable>
-      </ScrollView>
-    </SafeAreaView>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  header: { alignItems: 'center', paddingVertical: 12, borderBottomWidth: StyleSheet.hairlineWidth },
   content: { padding: Spacing.marginMobile, gap: Spacing.stackMd, paddingBottom: 48 },
   card: { borderRadius: Radius.xl, borderWidth: 1, paddingHorizontal: Spacing.gutter },
   row: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 16, borderBottomWidth: StyleSheet.hairlineWidth },

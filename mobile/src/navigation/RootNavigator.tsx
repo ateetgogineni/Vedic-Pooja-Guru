@@ -3,15 +3,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useAppTheme } from '@/lib/theme-context';
 import { TabNavigator } from '@/navigation/TabNavigator';
 import type { RootStackParamList } from '@/navigation/types';
+import { AstrologyProfileScreen } from '@/screens/AstrologyProfileScreen';
 import { AuthScreen } from '@/screens/AuthScreen';
 import { ChatScreen } from '@/screens/ChatScreen';
 import { ChecklistScreen } from '@/screens/ChecklistScreen';
+import { FestivalDetailScreen } from '@/screens/FestivalDetailScreen';
 import { HeadcountScreen } from '@/screens/HeadcountScreen';
 import { HelpScreen } from '@/screens/HelpScreen';
 import { LanguageScreen } from '@/screens/LanguageScreen';
 import { MuhuratScreen } from '@/screens/MuhuratScreen';
 import { OnboardingScreen } from '@/screens/OnboardingScreen';
 import { PoojaDetailScreen } from '@/screens/PoojaDetailScreen';
+import { ProfileScreen } from '@/screens/ProfileScreen';
 import { SplashScreen } from '@/screens/SplashScreen';
 import { TraditionScreen } from '@/screens/TraditionScreen';
 import { WalkthroughScreen } from '@/screens/WalkthroughScreen';
@@ -42,6 +45,9 @@ export function RootNavigator() {
       <Stack.Screen name="Walkthrough" component={WalkthroughScreen} />
       <Stack.Screen name="Chat" component={ChatScreen} />
       <Stack.Screen name="Help" component={HelpScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="AstrologyProfile" component={AstrologyProfileScreen} />
+      <Stack.Screen name="FestivalDetail" component={FestivalDetailScreen} />
     </Stack.Navigator>
   );
 }
