@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vedic Vidhi - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&amp;family=Noto+Serif:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "outline": "#887365",
+                        "background": "#fff8f5",
+                        "surface-dim": "#e9d7cb",
+                        "on-primary-fixed": "#2f1400",
+                        "secondary-fixed-dim": "#ffb4a9",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#dbc2b1",
+                        "primary-container": "#e9862e",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffb781",
+                        "inverse-surface": "#392e27",
+                        "surface-variant": "#f2dfd4",
+                        "sacred-green": "#4C7A5A",
+                        "secondary": "#aa3529",
+                        "surface-bright": "#fff8f5",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#fff1e9",
+                        "surface-container": "#fdeadf",
+                        "inverse-on-surface": "#ffede3",
+                        "secondary-fixed": "#ffdad5",
+                        "on-surface": "#231a13",
+                        "on-secondary-fixed-variant": "#891c15",
+                        "surface": "#fff8f5",
+                        "tertiary": "#785a00",
+                        "tertiary-fixed-dim": "#f0c04d",
+                        "on-background": "#231a13",
+                        "surface-container-highest": "#f2dfd4",
+                        "primary-fixed": "#ffdcc4",
+                        "on-secondary-fixed": "#410001",
+                        "tertiary-container": "#c59827",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#700605",
+                        "primary-fixed-dim": "#ffb781",
+                        "muhurat-amber": "#D99A2B",
+                        "soft-sand": "#F3E9D6",
+                        "on-tertiary-container": "#463300",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#f8e5d9",
+                        "error": "#ba1a1a",
+                        "primary": "#924b00",
+                        "on-primary-container": "#572a00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#6f3800",
+                        "surface-tint": "#924b00",
+                        "on-tertiary-fixed": "#251a00",
+                        "secondary-container": "#ff7261",
+                        "tertiary-fixed": "#ffdf9d",
+                        "warm-ivory": "#FBF6EC",
+                        "on-surface-variant": "#554337"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1rem",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "margin-desktop": "2.5rem"
+                    },
+                    "fontFamily": {
+                        "mantra-display": ["Noto Serif", "serif"],
+                        "body-md": ["Noto Sans", "sans-serif"],
+                        "headline-md": ["Noto Serif", "serif"],
+                        "label-sm": ["Noto Sans", "sans-serif"],
+                        "body-lg": ["Noto Sans", "sans-serif"],
+                        "headline-lg-mobile": ["Noto Serif", "serif"],
+                        "headline-lg": ["Noto Serif", "serif"]
+                    },
+                    "fontSize": {
+                        "mantra-display": ["26px", { "lineHeight": "44px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>body {
+    background-color: theme("colors.warm-ivory");
+    color: theme("colors.on-surface");
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column
+    }
+.bg-watermark {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDIUUPxv4k-eH6jLdDG9AISHWSEeVXHudFH5anqjArovC70rd79XHT-L6evAAWdv8lZKlUTyADtPQviPOYa00DlsEZDSc_M5tBkk-nDAL2YegY0_QmRZg2mXWixqEYCig6Tc6q7WwDb9HTnmUQMMqHZcUda898JxWmBizvVoTflfmfegMLb9NY4e1DswFdOhxZkYQuCPsM20JVNzKOki7sKgrv3ekVjdaWmP1scMQEga34Pf3uulgvSUzzAN7PJMmzhSv-5dbg1qSWn);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.03;
+    pointer-events: none
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased relative overflow-x-hidden">
+<!-- subtle watermark background -->
+<div class="absolute inset-0 z-0 bg-watermark" data-alt="A very faint, highly intricate traditional Indian mandala pattern, extremely low contrast against a warm ivory background, meditative wellness aesthetic, soft lighting, spiritual sanctuary vibe." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAE-yWtK8zUVlLpot_yhPCTmCzKxERGzl3g_u3ZobdsE4GkgX4eeymHRtRdOYKyyufDUTd3R36bns8hGtPw8OgKH2DBZB73jCxDpWtXw5cuua9g8fSzTKtdp7cHZt9ic4wTi6vRskim-ij7XbOmLmuRlXSg7dxscUqRW2Uun_melW9VtBG2KYeFuxZZOaa3MMyRoLKwB4AiUdGYd4XZJ0qabOcOzYJqz0lsDRC1yCHLsu9LUq3u4vS25dlwkNWk9YkMojBHmlAvHwoG')"></div>
+<main class="relative z-10 flex-grow flex flex-col items-center justify-center p-margin-mobile md:p-margin-desktop w-full max-w-md mx-auto">
+<!-- Header Logo -->
+<div class="mb-stack-lg flex flex-col items-center">
+<span class="material-symbols-outlined text-primary-container text-5xl mb-stack-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<h1 class="font-mantra-display text-mantra-display text-primary text-center">Vedic Vidhi</h1>
+</div>
+<!-- Welcome Text -->
+<div class="mb-stack-lg text-center">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-stack-sm">Namaste.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Welcome back to your sanctuary.</p>
+</div>
+<!-- Form -->
+<form class="w-full flex flex-col gap-stack-md bg-soft-sand/50 p-6 rounded-xl border border-outline-variant/30 shadow-[0_10px_30px_rgba(233,134,46,0.05)] backdrop-blur-sm">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="email">Email or Username</label>
+<input class="w-full bg-soft-sand border border-outline-variant/50 rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-1 focus:ring-primary-container focus:border-primary-container transition-colors" id="email" placeholder="Enter your email" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="password">Password</label>
+<a class="font-label-sm text-label-sm text-primary-container hover:text-primary transition-colors" href="#">Forgot Password?</a>
+</div>
+<input class="w-full bg-soft-sand border border-outline-variant/50 rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-1 focus:ring-primary-container focus:border-primary-container transition-colors" id="password" placeholder="••••••••" type="password"/>
+</div>
+<button class="w-full bg-primary-container text-on-primary font-headline-md text-body-lg rounded-full py-4 mt-stack-sm hover:shadow-[0_8px_20px_rgba(233,134,46,0.2)] active:scale-[0.98] transition-all duration-200" type="button">
+                Sign In
+            </button>
+<div class="text-center mt-2">
+<p class="font-body-md text-body-md text-on-surface-variant">New here? <a class="text-primary-container font-semibold hover:text-primary transition-colors" href="#">Create Account</a></p>
+</div>
+</form>
+<!-- Divider -->
+<div class="w-full flex items-center gap-4 my-stack-md">
+<div class="h-px bg-outline-variant/30 flex-grow"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">OR</span>
+<div class="h-px bg-outline-variant/30 flex-grow"></div>
+</div>
+<!-- Secondary Actions -->
+<div class="w-full flex flex-col gap-4">
+<button class="w-full flex items-center justify-center gap-3 bg-surface border border-outline-variant text-on-surface font-body-md text-body-md rounded-full py-3 hover:bg-surface-container transition-colors" type="button">
+<!-- Using a generic icon as placeholder for google logo as per instructions not to use external images if not needed, but text says google -->
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+                Continue with Google
+            </button>
+<button class="w-full text-center font-body-md text-body-md text-primary-container hover:text-primary transition-colors py-2" type="button">
+                Continue as Guest
+            </button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="relative z-10 w-full py-6 text-center mt-auto">
+<p class="font-label-sm text-label-sm text-on-surface-variant/70 space-x-4">
+<a class="hover:text-primary-container transition-colors" href="#">Privacy Policy</a>
+<span>•</span>
+<a class="hover:text-primary-container transition-colors" href="#">Terms of Service</a>
+</p>
+</footer>
+</body></html>

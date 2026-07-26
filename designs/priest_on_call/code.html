@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Priest-on-Call Booking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&amp;family=Noto+Serif:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#ff7261",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffdf9d",
+                        "tertiary-fixed-dim": "#f0c04d",
+                        "secondary": "#aa3529",
+                        "on-surface-variant": "#554337",
+                        "on-primary-container": "#572a00",
+                        "secondary-fixed": "#ffdad5",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "surface-dim": "#e9d7cb",
+                        "on-secondary-fixed-variant": "#891c15",
+                        "surface-bright": "#fff8f5",
+                        "surface": "#fff8f5",
+                        "surface-tint": "#924b00",
+                        "primary-container": "#e9862e",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "background": "#fff8f5",
+                        "on-primary-fixed-variant": "#6f3800",
+                        "on-tertiary-container": "#463300",
+                        "on-tertiary-fixed": "#251a00",
+                        "inverse-primary": "#ffb781",
+                        "muhurat-amber": "#D99A2B",
+                        "inverse-on-surface": "#ffede3",
+                        "surface-variant": "#f2dfd4",
+                        "error-container": "#ffdad6",
+                        "sacred-green": "#4C7A5A",
+                        "on-background": "#231a13",
+                        "outline-variant": "#dbc2b1",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#c59827",
+                        "surface-container-highest": "#f2dfd4",
+                        "on-secondary-fixed": "#410001",
+                        "on-secondary-container": "#700605",
+                        "tertiary": "#785a00",
+                        "outline": "#887365",
+                        "soft-sand": "#F3E9D6",
+                        "primary-fixed": "#ffdcc4",
+                        "primary-fixed-dim": "#ffb781",
+                        "primary": "#924b00",
+                        "surface-container-high": "#f8e5d9",
+                        "secondary-fixed-dim": "#ffb4a9",
+                        "on-surface": "#231a13",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#392e27",
+                        "warm-ivory": "#FBF6EC",
+                        "surface-container-low": "#fff1e9",
+                        "on-primary-fixed": "#2f1400",
+                        "surface-container": "#fdeadf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Noto Serif", "serif"],
+                        "label-sm": ["Noto Sans", "sans-serif"],
+                        "headline-md": ["Noto Serif", "serif"],
+                        "body-md": ["Noto Sans", "sans-serif"],
+                        "headline-lg": ["Noto Serif", "serif"],
+                        "mantra-display": ["Noto Serif", "serif"],
+                        "body-lg": ["Noto Sans", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "mantra-display": ["26px", { "lineHeight": "44px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+        }
+        .ambient-shadow {
+            box-shadow: 0 4px 30px rgba(146, 75, 0, 0.08);
+        }
+        .bg-watermark {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0C50 0 60 40 100 50C100 50 60 60 50 100C50 100 40 60 0 50C0 50 40 40 50 0Z' fill='%23924b00' fill-opacity='0.03'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-24 md:pb-0 bg-watermark">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim w-full top-0 sticky z-40 transition-shadow duration-300" id="topAppBar">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full max-w-7xl mx-auto">
+<button aria-label="Go back" class="text-primary dark:text-primary-fixed hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors rounded-full p-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-mantra-display text-mantra-display text-primary dark:text-primary-fixed font-bold tracking-tight">Vedic Vidhi</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-outline-variant">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a serene individual in minimal warm ivory and saffron attire, representing a user profile picture in a meditative wellness app. Soft, high-key lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA79LAZ0dlZe0BzxGZe_OTaNDa4WorI8q7X8Ys00NvNqnApeU5x8gd8HhOR1_RaVyYo-XCaApZg4sFfNAzI-d3pL9LcI2V4NKYWgi9-6nMKKZZb87bulC6vlRMWPp2uUQ14-9rjVc9giIjZCazQ4oTvPh2AF2U1fbwBrDyvjnock56KmnNRWsz5ZTPMtTE6RDKViCwrjhYX3fGpSKAfsCdC21yO1jQVKOke6jmDb0fGfPaxFC0ASRfiOn_W9o4C1UnACc4NIO8UOaiR"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop pt-stack-md">
+<div class="mb-stack-lg text-center md:text-left">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-sm">Priest-on-Call</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Connect with verified traditional scholars for guided poojas, consultations, and personalized muhurat planning.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Priest List -->
+<div class="lg:col-span-7 flex flex-col gap-stack-md">
+<!-- Priest Card 1 -->
+<div class="bg-soft-sand rounded-xl p-6 ambient-shadow border border-outline-variant relative overflow-hidden group cursor-pointer hover:border-primary transition-colors">
+<div class="absolute bottom-0 right-0 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[120px] text-primary">potted_plant</span>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 relative z-10">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-surface shrink-0 mx-auto sm:mx-0 shadow-sm">
+<img alt="Pt. Sharma" class="w-full h-full object-cover" data-alt="A portrait of a serene, elderly Hindu priest with ash marks on forehead, wearing traditional saffron robes, smiling gently in a soft, bright, naturally lit environment. Meditative wellness aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaO_GQrPH-2LYyjg_j6WU58BebJ5CIzB2YsG3qSL9Iislg0r6jPX4abEwfpszp0YmroA0rVaVYzRWmobtxh9Ngn36f69yXf5-JaB4T34vKHEnw1p8RbROWJOlbSb8tCMZSnyXnodUIWw0qCbFcJLz4lSE_9vznJCQ8aptZdELtbkGIWlKpSpS_ZmZNbMRx7kY6JMUO6Li5O3fROP_UHjNki2g53_lxfeMd98xv3o8SXSKVPpFkEWi-s0bj3GdBXKO0a4Nwom8Cazjt"/>
+</div>
+<div class="flex-1 flex flex-col justify-center text-center sm:text-left">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Pt. Ramesh Sharma</h3>
+<div class="hidden sm:flex items-center gap-1 bg-surface px-2 py-1 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-muhurat-amber text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface">4.9</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-secondary mb-2">Vedic Astrology &amp; Griha Pravesh</p>
+<div class="flex flex-wrap gap-2 justify-center sm:justify-start mb-4">
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm border border-outline-variant">Hindi</span>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm border border-outline-variant">Sanskrit</span>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm border border-outline-variant">English</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2">Over 25 years of experience in traditional Vedic rituals. Specializes in detailed astrological readings and elaborate home consecration ceremonies.</p>
+</div>
+</div>
+</div>
+<!-- Priest Card 2 -->
+<div class="bg-soft-sand rounded-xl p-6 ambient-shadow border border-primary relative overflow-hidden group cursor-pointer">
+<div class="absolute inset-0 ring-2 ring-primary-container ring-inset rounded-xl pointer-events-none"></div>
+<div class="absolute bottom-0 right-0 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[120px] text-primary">local_fire_department</span>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 relative z-10">
+<div class="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-surface shrink-0 mx-auto sm:mx-0 shadow-sm relative">
+<div class="absolute bottom-0 right-0 bg-sacred-green w-4 h-4 rounded-full border-2 border-surface z-20"></div>
+<img alt="Acharya Dixit" class="w-full h-full object-cover" data-alt="A professional portrait of a younger, calm traditional scholar in elegant warm ivory attire, sitting in a minimalist space with soft sunlight filtering through. Focus on spiritual groundedness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7pV3MuD3pCCBMp4XTd_dHX33jaPS4qG2Z6FS7MSuMJFoBpag3cojS7D261CZhM0jJc7YLYVpwHA36hmJwwSfZdqti_c_w3DtZlI0-ZHqs3Y-EgpBo2SNTy-6-zBf2BZic9cLE-Jbye9MG-U_T155imbBXoB9SKrEpM3rQoifJ-OobueHBIuXVHnGIsW8JKUR_C5fr-KZsMwgN6dWi3AhcvCMEBIN42TUverpiaagqcgwCYUsrlrBKf9rGqh9iUNmaykjgZKtm95XO"/>
+</div>
+<div class="flex-1 flex flex-col justify-center text-center sm:text-left">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline-md text-headline-md text-on-surface">Acharya Vivek Dixit</h3>
+<div class="hidden sm:flex items-center gap-1 bg-surface px-2 py-1 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-muhurat-amber text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface">5.0</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-secondary mb-2">Homa, Yajna &amp; Daily Anushthan</p>
+<div class="flex flex-wrap gap-2 justify-center sm:justify-start mb-4">
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm border border-outline-variant">Telugu</span>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm border border-outline-variant">English</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm line-clamp-2">Expert in fire rituals and daily chanting practices. Offers deep insights into the meaning behind the mantras during the ritual.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Booking Section -->
+<div class="lg:col-span-5">
+<div class="bg-surface rounded-xl p-6 ambient-shadow border border-outline-variant sticky top-24">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 border-b border-outline-variant pb-4">Book Acharya Vivek Dixit</h3>
+<div class="mb-6">
+<label class="font-label-sm text-label-sm text-on-surface block mb-2">Select Date</label>
+<div class="grid grid-cols-7 gap-1 text-center mb-2">
+<div class="font-label-sm text-label-sm text-on-surface-variant py-1">S</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant py-1">M</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant py-1">T</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant py-1">W</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant py-1">T</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant py-1">F</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant py-1">S</div>
+</div>
+<div class="grid grid-cols-7 gap-1 text-center">
+<div class="py-2 text-outline-variant font-body-md text-body-md">28</div>
+<div class="py-2 text-outline-variant font-body-md text-body-md">29</div>
+<div class="py-2 text-outline-variant font-body-md text-body-md">30</div>
+<div class="py-2 text-outline-variant font-body-md text-body-md">31</div>
+<button class="py-2 hover:bg-surface-variant rounded-full font-body-md text-body-md">1</button>
+<button class="py-2 hover:bg-surface-variant rounded-full font-body-md text-body-md">2</button>
+<button class="py-2 hover:bg-surface-variant rounded-full font-body-md text-body-md">3</button>
+<button class="py-2 hover:bg-surface-variant rounded-full font-body-md text-body-md">4</button>
+<button class="py-2 bg-primary text-on-primary rounded-full font-body-md text-body-md shadow-md">5</button>
+<button class="py-2 hover:bg-surface-variant rounded-full font-body-md text-body-md">6</button>
+<button class="py-2 hover:bg-surface-variant rounded-full font-body-md text-body-md">7</button>
+<button class="py-2 hover:bg-surface-variant rounded-full font-body-md text-body-md">8</button>
+<button class="py-2 hover:bg-surface-variant rounded-full font-body-md text-body-md">9</button>
+<button class="py-2 hover:bg-surface-variant rounded-full font-body-md text-body-md">10</button>
+</div>
+</div>
+<div class="mb-8">
+<label class="font-label-sm text-label-sm text-on-surface block mb-2">Available Slots</label>
+<div class="grid grid-cols-3 gap-3">
+<button class="border border-outline-variant rounded-lg py-2 font-body-md text-body-md text-on-surface-variant hover:border-primary hover:text-primary transition-colors">08:00 AM</button>
+<button class="border-2 border-primary bg-surface-variant rounded-lg py-2 font-body-md text-body-md text-primary font-bold">10:30 AM</button>
+<button class="border border-outline-variant rounded-lg py-2 font-body-md text-body-md text-on-surface-variant hover:border-primary hover:text-primary transition-colors">04:00 PM</button>
+</div>
+</div>
+<button class="w-full bg-primary-container hover:bg-primary text-on-primary font-headline-md text-body-md py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95">
+<span>Confirm Booking</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-margin-mobile py-2 bg-surface-container dark:bg-surface-container-lowest shadow-[0_-4px_20px_rgba(146,75,0,0.08)] rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 active:scale-90 duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-sm text-label-sm mt-1">Priests</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-sm text-label-sm mt-1">Panchangam</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple scroll effect for TopAppBar
+        window.addEventListener('scroll', () => {
+            const appBar = document.getElementById('topAppBar');
+            if (window.scrollY > 10) {
+                appBar.classList.add('shadow-md');
+            } else {
+                appBar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

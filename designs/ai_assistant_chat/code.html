@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Assistant Chat - Vedic Vidhi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "outline": "#887365",
+                "background": "#fff8f5",
+                "surface-bright": "#fff8f5",
+                "outline-variant": "#dbc2b1",
+                "error": "#ba1a1a",
+                "tertiary-fixed-dim": "#f0c04d",
+                "surface-variant": "#f2dfd4",
+                "on-primary-fixed": "#2f1400",
+                "on-surface": "#231a13",
+                "tertiary-container": "#c59827",
+                "surface-container": "#fdeadf",
+                "on-tertiary-container": "#463300",
+                "on-background": "#231a13",
+                "inverse-surface": "#392e27",
+                "primary-container": "#e9862e",
+                "surface": "#fff8f5",
+                "on-primary-container": "#572a00",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary": "#ffffff",
+                "on-tertiary-fixed-variant": "#5b4300",
+                "on-surface-variant": "#554337",
+                "inverse-primary": "#ffb781",
+                "warm-ivory": "#FBF6EC",
+                "soft-sand": "#F3E9D6",
+                "surface-container-low": "#fff1e9",
+                "tertiary-fixed": "#ffdf9d",
+                "secondary": "#aa3529",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed": "#251a00",
+                "on-secondary-container": "#700605",
+                "primary-fixed": "#ffdcc4",
+                "on-secondary-fixed": "#410001",
+                "surface-tint": "#924b00",
+                "on-secondary-fixed-variant": "#891c15",
+                "muhurat-amber": "#D99A2B",
+                "on-primary-fixed-variant": "#6f3800",
+                "secondary-fixed-dim": "#ffb4a9",
+                "primary": "#924b00",
+                "inverse-on-surface": "#ffede3",
+                "surface-container-highest": "#f2dfd4",
+                "on-primary": "#ffffff",
+                "secondary-container": "#ff7261",
+                "on-error-container": "#93000a",
+                "primary-fixed-dim": "#ffb781",
+                "tertiary": "#785a00",
+                "sacred-green": "#4C7A5A",
+                "on-tertiary": "#ffffff",
+                "on-error": "#ffffff",
+                "surface-container-high": "#f8e5d9",
+                "surface-dim": "#e9d7cb",
+                "secondary-fixed": "#ffdad5"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "stack-sm": "0.5rem",
+                "margin-desktop": "2.5rem",
+                "gutter": "1rem",
+                "stack-lg": "3rem",
+                "stack-md": "1.5rem",
+                "margin-mobile": "1rem"
+        },
+        "fontFamily": {
+                "mantra-display": [
+                        "notoSerif"
+                ],
+                "label-sm": [
+                        "notoSans"
+                ],
+                "body-md": [
+                        "notoSans"
+                ],
+                "headline-lg": [
+                        "notoSerif"
+                ],
+                "body-lg": [
+                        "notoSans"
+                ],
+                "headline-md": [
+                        "notoSerif"
+                ],
+                "headline-lg-mobile": [
+                        "notoSerif"
+                ]
+        },
+        "fontSize": {
+                "mantra-display": [
+                        "26px",
+                        {
+                                "lineHeight": "44px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+  body { font-family: 'Noto Sans', sans-serif; }
+  h1, h2, h3, h4, h5, h6, .font-mantra-display, .font-headline-lg, .font-headline-md, .font-headline-lg-mobile { font-family: 'Noto Serif', serif; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-warm-ivory text-on-surface h-screen flex flex-col overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim flex justify-between items-center px-margin-mobile py-4 w-full max-w-7xl mx-auto top-0 z-10 shrink-0">
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 w-10 h-10 flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-mantra-display text-mantra-display text-primary dark:text-primary-fixed font-bold">Vedic Vidhi</h1>
+<div class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 w-10 h-10 flex items-center justify-center rounded-full bg-surface-container">
+<span class="material-symbols-outlined">person</span>
+</div>
+</header>
+<!-- Context Banner -->
+<div class="bg-surface-container text-on-surface-variant px-margin-mobile py-3 flex items-center justify-center gap-2 border-b border-soft-sand shadow-sm z-10 shrink-0">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">info</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Current Step: Kalash Sthapana</span>
+</div>
+<!-- Chat Area Canvas -->
+<main class="flex-1 overflow-y-auto p-margin-mobile flex flex-col gap-stack-md bg-warm-ivory relative scroll-smooth">
+<!-- Decorative Watermark (Mandala) -->
+<div class="absolute inset-0 pointer-events-none opacity-[0.03] flex items-center justify-center z-0">
+<svg fill="currentColor" height="300" viewbox="0 0 24 24" width="300" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L14.4 7.6L20 10L14.4 12.4L12 18L9.6 12.4L4 10L9.6 7.6L12 2Z"></path>
+<circle cx="12" cy="12" fill="none" r="8" stroke="currentColor" stroke-width="0.5"></circle>
+</svg>
+</div>
+<!-- Chat Messages Container -->
+<div class="flex flex-col gap-6 z-10 w-full max-w-3xl mx-auto mt-4">
+<!-- Timestamp -->
+<div class="text-center font-label-sm text-label-sm text-outline-variant my-2">
+        Today, 10:15 AM
+      </div>
+<!-- User Message -->
+<div class="flex justify-end group">
+<div class="bg-surface-container text-on-surface rounded-2xl rounded-tr-sm px-5 py-3 max-w-[85%] sm:max-w-[70%] font-body-md text-body-md shadow-[0_4px_20px_rgba(233,134,46,0.05)] border border-surface-dim">
+          I don't have fresh mango leaves, what can I use?
+        </div>
+</div>
+<!-- AI Assistant Message -->
+<div class="flex justify-start group">
+<div class="bg-soft-sand border-l-4 border-sacred-green text-on-surface rounded-2xl rounded-tl-sm px-5 py-4 max-w-[90%] sm:max-w-[75%] font-body-md text-body-md shadow-sm flex flex-col gap-2 relative">
+<!-- AI Icon Badge -->
+<div class="absolute -left-3 -top-3 bg-surface-lowest rounded-full p-1.5 shadow-sm border border-outline-variant bg-white flex items-center justify-center">
+<span class="material-symbols-outlined text-sacred-green text-[16px]" style="font-variation-settings: 'FILL' 1;">spa</span>
+</div>
+<p class="leading-relaxed">You can use betel leaves as a common substitute, or simply offer an extra flower with devotion.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Input Area -->
+<div class="bg-surface-container-lowest border-t border-soft-sand shadow-[0_-4px_30px_rgba(146,75,0,0.08)] z-20 shrink-0 pb-safe">
+<div class="w-full max-w-3xl mx-auto p-margin-mobile flex flex-col gap-4">
+<!-- Suggested Question Chips -->
+<div class="flex gap-3 overflow-x-auto pb-1 scrollbar-hide -mx-margin-mobile px-margin-mobile sm:mx-0 sm:px-0">
+<button class="whitespace-nowrap border-2 border-primary-container bg-warm-ivory text-primary-container px-4 py-2 rounded-full font-label-sm text-label-sm hover:bg-surface-container transition-colors active:scale-95 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">help</span>
+          Is it okay to start late?
+        </button>
+<button class="whitespace-nowrap border-2 border-primary-container bg-warm-ivory text-primary-container px-4 py-2 rounded-full font-label-sm text-label-sm hover:bg-surface-container transition-colors active:scale-95 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+          Alternative for Kalash
+        </button>
+</div>
+<!-- Input Row -->
+<div class="flex items-center gap-3">
+<!-- Text Input -->
+<div class="flex-1 bg-soft-sand rounded-full pl-4 pr-2 py-2 flex items-center gap-2 focus-within:ring-2 focus-within:ring-primary-container transition-all border border-transparent focus-within:border-primary-container/30">
+<span class="material-symbols-outlined text-outline">chat</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md w-full text-on-surface placeholder-outline-variant p-2 outline-none" placeholder="Type your question..." type="text"/>
+<button class="text-primary-container hover:bg-surface-container p-2 rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<!-- Large Voice Input Button -->
+<button class="w-14 h-14 bg-primary-container text-white rounded-full flex items-center justify-center shadow-[0_8px_20px_rgba(233,134,46,0.3)] hover:scale-105 active:scale-95 transition-all flex-shrink-0 relative overflow-hidden group">
+<!-- Subtle ripple effect placeholder -->
+<div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity rounded-full"></div>
+<span class="material-symbols-outlined text-[28px] relative z-10" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

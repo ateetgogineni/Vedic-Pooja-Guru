@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checklist: Ganesh Pooja - Vedic Vidhi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&amp;family=Noto+Serif:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#891c15",
+                        "inverse-primary": "#ffb781",
+                        "inverse-on-surface": "#ffede3",
+                        "tertiary-fixed": "#ffdf9d",
+                        "on-primary-fixed": "#2f1400",
+                        "secondary": "#aa3529",
+                        "muhurat-amber": "#D99A2B",
+                        "primary-fixed-dim": "#ffb781",
+                        "primary-fixed": "#ffdcc4",
+                        "outline-variant": "#dbc2b1",
+                        "surface-container-low": "#fff1e9",
+                        "on-tertiary-fixed": "#251a00",
+                        "on-tertiary-container": "#463300",
+                        "surface-bright": "#fff8f5",
+                        "tertiary-fixed-dim": "#f0c04d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#572a00",
+                        "surface-container": "#fdeadf",
+                        "surface-dim": "#e9d7cb",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#f2dfd4",
+                        "tertiary": "#785a00",
+                        "surface-container-high": "#f8e5d9",
+                        "outline": "#887365",
+                        "background": "#fff8f5",
+                        "warm-ivory": "#FBF6EC",
+                        "on-background": "#231a13",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "secondary-container": "#ff7261",
+                        "on-secondary-fixed": "#410001",
+                        "on-primary-fixed-variant": "#6f3800",
+                        "surface-container-highest": "#f2dfd4",
+                        "on-surface": "#231a13",
+                        "secondary-fixed-dim": "#ffb4a9",
+                        "on-surface-variant": "#554337",
+                        "tertiary-container": "#c59827",
+                        "on-secondary-container": "#700605",
+                        "on-error-container": "#93000a",
+                        "surface": "#fff8f5",
+                        "surface-tint": "#924b00",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "primary-container": "#e9862e",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#392e27",
+                        "soft-sand": "#F3E9D6",
+                        "sacred-green": "#4C7A5A",
+                        "primary": "#924b00",
+                        "secondary-fixed": "#ffdad5",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1rem",
+                        "stack-md": "1.5rem",
+                        "gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Noto Serif", "serif"],
+                        "body-lg": ["Noto Sans", "sans-serif"],
+                        "label-sm": ["Noto Sans", "sans-serif"],
+                        "body-md": ["Noto Sans", "sans-serif"],
+                        "mantra-display": ["Noto Serif", "serif"],
+                        "headline-lg-mobile": ["Noto Serif", "serif"],
+                        "headline-lg": ["Noto Serif", "serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "mantra-display": ["26px", { "lineHeight": "44px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.warm-ivory');
+            color: theme('colors.on-background');
+        }
+        /* Custom checkbox style */
+        .samagri-checkbox:checked + div {
+            background-color: theme('colors.primary-container');
+            border-color: theme('colors.primary-container');
+        }
+        .samagri-checkbox:checked + div svg {
+            opacity: 1;
+        }
+        
+        /* Subtle mandala watermark */
+        .mandala-watermark {
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" stroke="%23924b00" stroke-width="0.5" stroke-opacity="0.2"/><circle cx="50" cy="50" r="35" stroke="%23924b00" stroke-width="0.5" stroke-opacity="0.2"/><path d="M50 5 L50 95 M5 50 L95 50" stroke="%23924b00" stroke-width="0.5" stroke-opacity="0.2"/><path d="M18.18 18.18 L81.82 81.82 M18.18 81.82 L81.82 18.18" stroke="%23924b00" stroke-width="0.5" stroke-opacity="0.2"/></svg>');
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: 150px;
+            opacity: 0.05;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col pb-[100px] md:pb-0 relative">
+<!-- TopAppBar -->
+<header class="bg-surface w-full top-0 sticky z-40">
+<div class="flex justify-between items-center px-margin-mobile py-4 w-full max-w-7xl mx-auto">
+<button aria-label="Go back" class="text-primary hover:bg-surface-container active:scale-95 duration-200 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-mantra-display text-mantra-display text-primary">Vedic Vidhi</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-[1040px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<!-- Header Section -->
+<div class="mb-stack-lg text-center md:text-left">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Checklist: Ganesh Pooja</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Gather these items before beginning the ritual. Quantities are calculated based on a standard setup.</p>
+</div>
+<!-- Action Row -->
+<div class="flex justify-end mb-stack-md">
+<button class="flex items-center gap-2 px-4 py-2 rounded-full border border-primary-container text-primary-container font-label-sm text-label-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                Share List
+            </button>
+</div>
+<!-- Checklist Categories Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter md:gap-stack-md pb-stack-lg">
+<!-- Category: Flowers & Fruits -->
+<div class="bg-soft-sand rounded-xl border border-surface-variant p-6 relative overflow-hidden shadow-[0_8px_30px_rgba(146,75,0,0.08)]">
+<div class="mandala-watermark absolute inset-0 pointer-events-none"></div>
+<div class="flex items-center gap-3 mb-6 relative z-10">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">local_florist</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Flowers &amp; Fruits</h3>
+</div>
+<div class="space-y-4 relative z-10">
+<!-- Item -->
+<label class="flex items-start gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center pt-1">
+<input class="samagri-checkbox opacity-0 absolute w-0 h-0" type="checkbox"/>
+<div class="w-6 h-6 rounded-md border-2 border-outline-variant bg-surface-container-lowest transition-colors flex items-center justify-center group-hover:border-primary-container">
+<svg class="w-4 h-4 text-on-primary opacity-0 transition-opacity" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<div class="flex-grow">
+<div class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Red Hibiscus</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">11 Flowers</div>
+</div>
+</label>
+<!-- Item -->
+<label class="flex items-start gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center pt-1">
+<input class="samagri-checkbox opacity-0 absolute w-0 h-0" type="checkbox"/>
+<div class="w-6 h-6 rounded-md border-2 border-outline-variant bg-surface-container-lowest transition-colors flex items-center justify-center group-hover:border-primary-container">
+<svg class="w-4 h-4 text-on-primary opacity-0 transition-opacity" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<div class="flex-grow">
+<div class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Durva Grass (Bermuda Grass)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">21 Blades</div>
+</div>
+</label>
+<!-- Item -->
+<label class="flex items-start gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center pt-1">
+<input class="samagri-checkbox opacity-0 absolute w-0 h-0" type="checkbox"/>
+<div class="w-6 h-6 rounded-md border-2 border-outline-variant bg-surface-container-lowest transition-colors flex items-center justify-center group-hover:border-primary-container">
+<svg class="w-4 h-4 text-on-primary opacity-0 transition-opacity" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<div class="flex-grow">
+<div class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Bananas</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">5 Fruits</div>
+</div>
+</label>
+</div>
+</div>
+<!-- Category: Core Pooja Items -->
+<div class="bg-soft-sand rounded-xl border border-surface-variant p-6 relative overflow-hidden shadow-[0_8px_30px_rgba(146,75,0,0.08)]">
+<div class="mandala-watermark absolute inset-0 pointer-events-none"></div>
+<div class="flex items-center gap-3 mb-6 relative z-10">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">flare</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Core Pooja Items</h3>
+</div>
+<div class="space-y-4 relative z-10">
+<!-- Item -->
+<label class="flex items-start gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center pt-1">
+<input class="samagri-checkbox opacity-0 absolute w-0 h-0" type="checkbox"/>
+<div class="w-6 h-6 rounded-md border-2 border-outline-variant bg-surface-container-lowest transition-colors flex items-center justify-center group-hover:border-primary-container">
+<svg class="w-4 h-4 text-on-primary opacity-0 transition-opacity" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<div class="flex-grow">
+<div class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Coconuts (with water)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">2 Coconuts</div>
+</div>
+</label>
+<!-- Item -->
+<label class="flex items-start gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center pt-1">
+<input class="samagri-checkbox opacity-0 absolute w-0 h-0" type="checkbox"/>
+<div class="w-6 h-6 rounded-md border-2 border-outline-variant bg-surface-container-lowest transition-colors flex items-center justify-center group-hover:border-primary-container">
+<svg class="w-4 h-4 text-on-primary opacity-0 transition-opacity" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<div class="flex-grow">
+<div class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Kumkum (Roli)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">1 Small Packet</div>
+</div>
+</label>
+<!-- Item -->
+<label class="flex items-start gap-4 cursor-pointer group">
+<div class="relative flex items-center justify-center pt-1">
+<input class="samagri-checkbox opacity-0 absolute w-0 h-0" type="checkbox"/>
+<div class="w-6 h-6 rounded-md border-2 border-outline-variant bg-surface-container-lowest transition-colors flex items-center justify-center group-hover:border-primary-container">
+<svg class="w-4 h-4 text-on-primary opacity-0 transition-opacity" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<div class="flex-grow">
+<div class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Modak or Ladoo</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">21 Pieces</div>
+</div>
+</label>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Action Area (Web & Mobile) -->
+<div class="fixed bottom-0 md:bottom-auto md:relative w-full z-30 bg-gradient-to-t from-warm-ivory via-warm-ivory to-transparent pb-6 pt-12 px-margin-mobile flex justify-center">
+<button class="bg-primary-container text-on-primary font-headline-md text-headline-md py-4 px-12 rounded-full shadow-[0_8px_30px_rgba(233,134,46,0.3)] hover:shadow-[0_12px_40px_rgba(233,134,46,0.4)] transition-all active:scale-95 flex items-center gap-3 w-full max-w-[400px] justify-center">
+<span>Start Pooja</span>
+<span class="material-symbols-outlined">play_circle</span>
+</button>
+</div>
+</body></html>

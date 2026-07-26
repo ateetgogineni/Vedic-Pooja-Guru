@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings - Vedic Vidhi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&amp;family=Noto+Serif:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#891c15",
+                      "inverse-primary": "#ffb781",
+                      "inverse-on-surface": "#ffede3",
+                      "tertiary-fixed": "#ffdf9d",
+                      "on-primary-fixed": "#2f1400",
+                      "secondary": "#aa3529",
+                      "muhurat-amber": "#D99A2B",
+                      "primary-fixed-dim": "#ffb781",
+                      "primary-fixed": "#ffdcc4",
+                      "outline-variant": "#dbc2b1",
+                      "surface-container-low": "#fff1e9",
+                      "on-tertiary-fixed": "#251a00",
+                      "on-tertiary-container": "#463300",
+                      "surface-bright": "#fff8f5",
+                      "tertiary-fixed-dim": "#f0c04d",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#572a00",
+                      "surface-container": "#fdeadf",
+                      "surface-dim": "#e9d7cb",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#f2dfd4",
+                      "tertiary": "#785a00",
+                      "surface-container-high": "#f8e5d9",
+                      "outline": "#887365",
+                      "background": "#fff8f5",
+                      "warm-ivory": "#FBF6EC",
+                      "on-background": "#231a13",
+                      "on-tertiary-fixed-variant": "#5b4300",
+                      "secondary-container": "#ff7261",
+                      "on-secondary-fixed": "#410001",
+                      "on-primary-fixed-variant": "#6f3800",
+                      "surface-container-highest": "#f2dfd4",
+                      "on-surface": "#231a13",
+                      "secondary-fixed-dim": "#ffb4a9",
+                      "on-surface-variant": "#554337",
+                      "tertiary-container": "#c59827",
+                      "on-secondary-container": "#700605",
+                      "on-error-container": "#93000a",
+                      "surface": "#fff8f5",
+                      "surface-tint": "#924b00",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "primary-container": "#e9862e",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#392e27",
+                      "soft-sand": "#F3E9D6",
+                      "sacred-green": "#4C7A5A",
+                      "primary": "#924b00",
+                      "secondary-fixed": "#ffdad5",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "0.5rem",
+                      "margin-desktop": "2.5rem",
+                      "stack-lg": "3rem",
+                      "margin-mobile": "1rem",
+                      "stack-md": "1.5rem",
+                      "gutter": "1rem"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Noto Serif", "serif"
+                      ],
+                      "body-lg": [
+                              "Noto Sans", "sans-serif"
+                      ],
+                      "label-sm": [
+                              "Noto Sans", "sans-serif"
+                      ],
+                      "body-md": [
+                              "Noto Sans", "sans-serif"
+                      ],
+                      "mantra-display": [
+                              "Noto Serif", "serif"
+                      ],
+                      "headline-lg-mobile": [
+                              "Noto Serif", "serif"
+                      ],
+                      "headline-lg": [
+                              "Noto Serif", "serif"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "mantra-display": [
+                              "26px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+      </script>
+<style>
+        .mandala-watermark {
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" stroke="%23924b00" stroke-width="2" fill="none" opacity="0.1"/><circle cx="50" cy="50" r="30" stroke="%23924b00" stroke-width="2" fill="none" opacity="0.1"/><path d="M50 10 L50 90 M10 50 L90 50" stroke="%23924b00" stroke-width="2" opacity="0.1"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right bottom;
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-warm-ivory text-on-background min-h-screen font-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim text-primary dark:text-primary-fixed font-headline-md text-headline-md w-full top-0 sticky z-40 transition-colors">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full max-w-[1040px] mx-auto">
+<button aria-label="Go back" class="active:scale-95 duration-200 hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors rounded-full p-2 flex items-center justify-center text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-mantra-display text-mantra-display text-primary dark:text-primary-fixed font-bold tracking-tight">Settings</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-soft-sand flex items-center justify-center">
+<img alt="Profile Avatar" class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a serene Hindu practitioner in traditional modest attire, set against a warm, soft-focus background that matches the app's meditative wellness aesthetic. The lighting is gentle and flattering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvGxC-7UY8p4sXWl23bIflS3k1NBQEiEL6OcayGl1rYclL0YJ2Qon0UMx9_SE95X__ZGomAoOrlMrlV4Ye0YVBIUwxyE5zr0Wa3FNEOLWGSHF3tPN--hzGd8dENRkPnby3WQZ3gik49-FsFI_coJO2FTTqRWdHIpKWjMAjY2UIsow32TNUrHFp4ki5UWji-3EmdSKkqjwIyADvHEWIibJ6Vg6i0HpJ8DruDimqI1DtjSj0gvlWNNxItPRQUJ8QhkjRQsqRNjmOkCEW"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas (No Nav Shell because Settings is a focused intent) -->
+<main class="w-full max-w-[1040px] mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg flex flex-col gap-stack-md">
+<div class="bg-soft-sand rounded-xl p-4 shadow-[0_8px_30px_rgba(146,75,0,0.08)] border border-surface-dim mandala-watermark">
+<ul class="flex flex-col">
+<!-- Language -->
+<li class="border-b border-surface-dim last:border-0">
+<button class="w-full flex items-center justify-between py-4 group active:scale-[0.98] transition-transform duration-200">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="language">language</span>
+<span class="font-body-lg text-body-lg text-on-surface">Language</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="font-body-md text-body-md">English</span>
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+</li>
+<!-- Region/Tradition -->
+<li class="border-b border-surface-dim last:border-0">
+<button class="w-full flex items-center justify-between py-4 group active:scale-[0.98] transition-transform duration-200">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="explore">explore</span>
+<span class="font-body-lg text-body-lg text-on-surface">Region/Tradition</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="font-body-md text-body-md">North Indian</span>
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+</li>
+<!-- Notifications -->
+<li class="border-b border-surface-dim last:border-0">
+<button class="w-full flex items-center justify-between py-4 group active:scale-[0.98] transition-transform duration-200">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-primary-container transition-colors" data-icon="notifications">notifications</span>
+<span class="font-body-lg text-body-lg text-on-surface">Notifications</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+</li>
+<!-- Dark Mode -->
+<li class="border-b border-surface-dim last:border-0">
+<div class="w-full flex items-center justify-between py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="dark_mode">dark_mode</span>
+<span class="font-body-lg text-body-lg text-on-surface">Dark Mode</span>
+</div>
+<!-- Toggle Switch -->
+<button aria-checked="false" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 bg-surface-variant" role="switch" type="button">
+<span aria-hidden="true" class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-soft-sand shadow ring-0 transition duration-200 ease-in-out translate-x-0"></span>
+</button>
+</div>
+</li>
+</ul>
+</div>
+<!-- Sign Out Button -->
+<div class="mt-stack-sm flex justify-center">
+<button class="flex items-center gap-2 px-8 py-3 rounded-full border border-primary-container text-primary-container bg-warm-ivory font-label-sm text-label-sm uppercase hover:bg-surface-container transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Sign Out
+            </button>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Content Verification - Vedic Vidhi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;1,400;1,600&amp;family=Noto+Serif:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#ff7261",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffdf9d",
+                        "tertiary-fixed-dim": "#f0c04d",
+                        "secondary": "#aa3529",
+                        "on-surface-variant": "#554337",
+                        "on-primary-container": "#572a00",
+                        "secondary-fixed": "#ffdad5",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "surface-dim": "#e9d7cb",
+                        "on-secondary-fixed-variant": "#891c15",
+                        "surface-bright": "#fff8f5",
+                        "surface": "#fff8f5",
+                        "surface-tint": "#924b00",
+                        "primary-container": "#e9862e",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "background": "#fff8f5",
+                        "on-primary-fixed-variant": "#6f3800",
+                        "on-tertiary-container": "#463300",
+                        "on-tertiary-fixed": "#251a00",
+                        "inverse-primary": "#ffb781",
+                        "muhurat-amber": "#D99A2B",
+                        "inverse-on-surface": "#ffede3",
+                        "surface-variant": "#f2dfd4",
+                        "error-container": "#ffdad6",
+                        "sacred-green": "#4C7A5A",
+                        "on-background": "#231a13",
+                        "outline-variant": "#dbc2b1",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#c59827",
+                        "surface-container-highest": "#f2dfd4",
+                        "on-secondary-fixed": "#410001",
+                        "on-secondary-container": "#700605",
+                        "tertiary": "#785a00",
+                        "outline": "#887365",
+                        "soft-sand": "#F3E9D6",
+                        "primary-fixed": "#ffdcc4",
+                        "primary-fixed-dim": "#ffb781",
+                        "primary": "#924b00",
+                        "surface-container-high": "#f8e5d9",
+                        "secondary-fixed-dim": "#ffb4a9",
+                        "on-surface": "#231a13",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#392e27",
+                        "warm-ivory": "#FBF6EC",
+                        "surface-container-low": "#fff1e9",
+                        "on-primary-fixed": "#2f1400",
+                        "surface-container": "#fdeadf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Noto Serif", "serif"],
+                        "label-sm": ["Noto Sans", "sans-serif"],
+                        "headline-md": ["Noto Serif", "serif"],
+                        "body-md": ["Noto Sans", "sans-serif"],
+                        "headline-lg": ["Noto Serif", "serif"],
+                        "mantra-display": ["Noto Serif", "serif"],
+                        "body-lg": ["Noto Sans", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "mantra-display": ["26px", { "lineHeight": "44px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FBF6EC; /* warm-ivory */
+            color: #231a13; /* on-background */
+        }
+        .ambient-shadow {
+            box-shadow: 0 10px 30px -10px rgba(146, 75, 0, 0.08); /* Tinted primary */
+        }
+        .watermark {
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" stroke="%23924b00" stroke-width="1" stroke-opacity="0.1"/><circle cx="50" cy="50" r="30" stroke="%23924b00" stroke-width="1" stroke-opacity="0.1"/><path d="M50 5 L50 95 M5 50 L95 50" stroke="%23924b00" stroke-width="1" stroke-opacity="0.1"/></svg>');
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            background-size: 150px;
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface w-full top-0 sticky z-40 flat no shadows">
+<div class="flex justify-between items-center px-margin-mobile py-4 w-full max-w-7xl mx-auto">
+<button aria-label="Go back" class="text-primary hover:bg-surface-container transition-colors active:scale-95 duration-200 p-2 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-mantra-display text-mantra-display text-primary text-center flex-grow">Vedic Vidhi</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant flex items-center justify-center cursor-pointer hover:bg-surface-container transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-md md:py-stack-lg mb-24 md:mb-0">
+<!-- Hero Section -->
+<section class="text-center max-w-3xl mx-auto mb-stack-lg">
+<span class="material-symbols-outlined text-primary-container text-5xl mb-4" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-sm">Sacred Trust &amp; Verification</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                Every ritual, mantra, and procedure on Vedic Vidhi is meticulously sourced from authentic scriptures and verified by distinguished scholars and traditional priests to preserve Sanatana Dharma.
+            </p>
+</section>
+<!-- The Process Bento Grid -->
+<section class="mb-stack-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-md text-center">Our Verification Process</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Step 1 -->
+<div class="bg-soft-sand rounded-xl p-6 ambient-shadow watermark border border-outline-variant/30 flex flex-col h-full">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary-container">menu_book</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 text-lg">1. Scriptural Sourcing</h4>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                        We base all procedures on primary texts including Vedas, Puranas, and recognized Agamas, ensuring foundational authenticity.
+                    </p>
+</div>
+<!-- Step 2 -->
+<div class="bg-soft-sand rounded-xl p-6 ambient-shadow watermark border border-outline-variant/30 flex flex-col h-full">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary-container">groups</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 text-lg">2. Scholar Review</h4>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                        Content is reviewed by our panel of Acharyas and Sanskrit scholars for accurate translation, phonetic transliteration, and contextual meaning.
+                    </p>
+</div>
+<!-- Step 3 -->
+<div class="bg-soft-sand rounded-xl p-6 ambient-shadow watermark border border-outline-variant/30 flex flex-col h-full">
+<div class="w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary-container">task_alt</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2 text-lg">3. Practical Validation</h4>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                        Experienced practicing priests validate the flow of rituals to ensure they are practical for modern devotees while maintaining sanctity.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Partner Institutions -->
+<section class="mb-stack-lg py-stack-md border-t border-b border-outline-variant/20">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-md text-center">Partner Institutions</h3>
+<div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-300">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl mb-2">account_balance</span>
+<span class="font-label-sm text-label-sm uppercase">Veda Patashala</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl mb-2">temple_hindu</span>
+<span class="font-label-sm text-label-sm uppercase">Samskrita Bharati</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl mb-2">library_books</span>
+<span class="font-label-sm text-label-sm uppercase">Dharma Samsthan</span>
+</div>
+</div>
+</section>
+<!-- Verifying Priests & Scholars (Expandable) -->
+<section>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-md text-center">Meet Our Panel</h3>
+<div class="max-w-4xl mx-auto space-y-4">
+<!-- Scholar 1 -->
+<details class="bg-surface-container rounded-lg group cursor-pointer ambient-shadow border border-outline-variant/20 overflow-hidden">
+<summary class="flex justify-between items-center p-6 font-headline-md text-headline-md text-on-surface text-xl">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A portrait photograph of a traditional Hindu scholar wearing simple elegant robes. The lighting is soft and natural, emphasizing wisdom and calmness. The background is a blurred library of ancient manuscripts, set in a light-mode, modern meditative aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6abCbOoneZn4zZLoyweFs3VfHQGEsYdTZ5e_0BTCDxd5fb4kD4ACbP3bhcIOEJa3TjqkpSX2UZ94KrMcY0jldCfgTys0Cep_L9lvGNdSKZ9eEQlvjHor9h1IZuI-Y8SAHXv1jTQWFUJ126Pr3UwUY5blMW5fCg8iwwpiX-lGbDHF5sG28nHyYqFtmauRJJrc_VY9VhJLentLfWzVJbohHssMMkJ-cnIye_1viZ6bxQnaGbUqgYpF0fI1qW5xBRAA3j81qZtQVu8ob"/>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-lg">Pt. Ramachandra Shastri</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Chief Vedacharya</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform duration-300">expand_more</span>
+</summary>
+<div class="p-6 pt-0 border-t border-outline-variant/10 mt-2 bg-surface">
+<p class="font-body-md text-body-md text-on-surface-variant pt-4">
+                            With over 40 years of experience in Vedic rituals and teaching, Pt. Shastri oversees the scriptural accuracy of all major Poojas on the platform. He holds a Vidyavachaspati degree from Kashi Vidya Parishad and has presided over hundreds of Yagnas internationally.
+                        </p>
+<div class="mt-4 flex gap-2">
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm">Rig Veda</span>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm">Samskritam</span>
+</div>
+</div>
+</details>
+<!-- Scholar 2 -->
+<details class="bg-surface-container rounded-lg group cursor-pointer ambient-shadow border border-outline-variant/20 overflow-hidden">
+<summary class="flex justify-between items-center p-6 font-headline-md text-headline-md text-on-surface text-xl">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A calm, respectful portrait of a modern female Hindu scholar in a traditional saree. Soft natural lighting in a clean, minimalist space that reflects a modern wellness aesthetic. The background is a bright, soft ivory color." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhr6Cp28WAbH_vLwN1xvW9l-seUde-elKiZTfgKCXum2RCjvARBuVUGilOF145ktaUr5UP5rpLtDdLrb85um4YRIfw8nxLj4c9Ku3GOBusRgQU3GshoHDZlOu8NMt0eiviuIEstxWLR2pjLLKs4pSHxSku_15N7xFn9BXzN4rRUl_J9gQRGUp4U_DjBVedtTP0-lxVk3Labj3uh-h867lcAjsj_nMmyErNvTRy7jB_ZeacmI9aIDZ4R2RcWh1BJlz-hoYWLoh9OQyd"/>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-lg">Dr. Ananya Sharma</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Agama &amp; Puranic Expert</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-open:rotate-180 transition-transform duration-300">expand_more</span>
+</summary>
+<div class="p-6 pt-0 border-t border-outline-variant/10 mt-2 bg-surface">
+<p class="font-body-md text-body-md text-on-surface-variant pt-4">
+                            Dr. Sharma bridges the gap between ancient texts and modern practice. Her PhD focuses on the everyday rituals prescribed in the Smritis. She ensures that the instructions are clear, practical, and accessible for modern devotees.
+                        </p>
+<div class="mt-4 flex gap-2">
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm">Agama Shastra</span>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm">Ritual Praxis</span>
+</div>
+</div>
+</details>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Hidden on Desktop) -->
+<nav class="md:hidden bg-surface-container fixed bottom-0 w-full z-50 flex justify-around items-center px-margin-mobile py-2 shadow-[0_-4px_20px_rgba(146,75,0,0.08)] rounded-t-xl border-t-0 border-b-0">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">menu_book</span>
+<span class="font-label-sm text-label-sm">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-label-sm text-label-sm">Panchangam</span>
+</a>
+<!-- Assuming Profile is the closest context to trust/verification -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 hover:text-primary transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Optional JS for smooth details opening if needed, but native HTML handles it mostly well.
+    </script>
+</body></html>

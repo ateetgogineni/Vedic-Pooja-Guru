@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vedic Vidhi - Splash Screen</title>
+<!-- Google Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&amp;family=Noto+Serif:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#887365",
+                        "background": "#fff8f5",
+                        "surface-bright": "#fff8f5",
+                        "outline-variant": "#dbc2b1",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#f0c04d",
+                        "surface-variant": "#f2dfd4",
+                        "on-primary-fixed": "#2f1400",
+                        "on-surface": "#231a13",
+                        "tertiary-container": "#c59827",
+                        "surface-container": "#fdeadf",
+                        "on-tertiary-container": "#463300",
+                        "on-background": "#231a13",
+                        "inverse-surface": "#392e27",
+                        "primary-container": "#e9862e",
+                        "surface": "#fff8f5",
+                        "on-primary-container": "#572a00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-surface-variant": "#554337",
+                        "inverse-primary": "#ffb781",
+                        "warm-ivory": "#FBF6EC",
+                        "soft-sand": "#F3E9D6",
+                        "surface-container-low": "#fff1e9",
+                        "tertiary-fixed": "#ffdf9d",
+                        "secondary": "#aa3529",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#251a00",
+                        "on-secondary-container": "#700605",
+                        "primary-fixed": "#ffdcc4",
+                        "on-secondary-fixed": "#410001",
+                        "surface-tint": "#924b00",
+                        "on-secondary-fixed-variant": "#891c15",
+                        "muhurat-amber": "#D99A2B",
+                        "on-primary-fixed-variant": "#6f3800",
+                        "secondary-fixed-dim": "#ffb4a9",
+                        "primary": "#924b00",
+                        "inverse-on-surface": "#ffede3",
+                        "surface-container-highest": "#f2dfd4",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#ff7261",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb781",
+                        "tertiary": "#785a00",
+                        "sacred-green": "#4C7A5A",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#f8e5d9",
+                        "surface-dim": "#e9d7cb",
+                        "secondary-fixed": "#ffdad5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "stack-lg": "3rem",
+                        "stack-md": "1.5rem",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "mantra-display": ["Noto Serif"],
+                        "label-sm": ["Noto Sans"],
+                        "body-md": ["Noto Sans"],
+                        "headline-lg": ["Noto Serif"],
+                        "body-lg": ["Noto Sans"],
+                        "headline-md": ["Noto Serif"],
+                        "headline-lg-mobile": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "mantra-display": ["26px", { "lineHeight": "44px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Pulse Animation for Loading Indicator */
+        @keyframes subtle-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.95); }
+        }
+        .animate-subtle-pulse {
+            animation: subtle-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* Float Animation for Logo */
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float-gentle {
+            animation: float-gentle 4s ease-in-out infinite;
+        }
+
+        /* Gradient Background to replace image */
+        .bg-splash-gradient {
+            background: radial-gradient(circle at 50% 40%, var(--tw-colors-warm-ivory) 0%, #fef3e5 40%, #fae6d3 100%);
+        }
+        
+        .glow-shadow {
+            box-shadow: 0 0 60px 20px rgba(233, 134, 46, 0.15); /* Soft Saffron Glow */
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-splash-gradient min-h-screen flex flex-col items-center justify-center relative overflow-hidden font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Subtle Mandala Watermark (Background Texture) -->
+<div class="absolute inset-0 pointer-events-none opacity-[0.03] flex items-center justify-center">
+<svg class="w-[800px] h-[800px] max-w-none text-primary" fill="currentColor" opacity="0.5" viewbox="0 0 500 500">
+<path d="M250 0C250 0 260 100 350 150C440 200 500 250 500 250C500 250 400 260 350 350C300 440 250 500 250 500C250 500 240 400 150 350C60 300 0 250 0 250C0 250 100 240 150 150C200 60 250 0 250 0Z"></path>
+<circle cx="250" cy="250" fill="none" r="100" stroke="currentColor" stroke-width="4"></circle>
+<circle cx="250" cy="250" fill="none" r="150" stroke="currentColor" stroke-dasharray="10 10" stroke-width="2"></circle>
+</svg>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 flex flex-col items-center justify-center flex-1 w-full max-w-md px-margin-mobile">
+<!-- Logo Area -->
+<div class="flex flex-col items-center space-y-stack-md animate-float-gentle">
+<!-- Diya/Lotus Icon Container with Glow -->
+<div class="relative w-32 h-32 flex items-center justify-center rounded-full glow-shadow bg-surface-container-lowest shadow-sm border border-soft-sand">
+<span class="material-symbols-outlined text-[72px] text-muhurat-amber" style="font-variation-settings: 'FILL' 1;">
+                    local_fire_department
+                </span>
+<!-- Inner soft glow -->
+<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-primary-container/20 to-transparent pointer-events-none mix-blend-overlay"></div>
+</div>
+<!-- Brand Name -->
+<div class="text-center mt-stack-md">
+<h1 class="font-mantra-display text-mantra-display text-secondary tracking-wide">
+                    Vedic Vidhi
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 opacity-80">
+                    Your Virtual Priest’s Assistant
+                </p>
+</div>
+</div>
+</main>
+<!-- Minimal Loading Indicator at Bottom -->
+<footer class="relative z-10 w-full pb-16 flex flex-col items-center justify-end">
+<div class="flex items-center space-x-3 animate-subtle-pulse">
+<div class="w-1.5 h-1.5 rounded-full bg-muhurat-amber"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-muhurat-amber opacity-75"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-muhurat-amber opacity-50"></div>
+</div>
+<p class="mt-4 font-label-sm text-label-sm text-outline uppercase tracking-[0.1em]">
+            Preparing Sanctuary
+        </p>
+</footer>
+<!-- No Navigation Bars included as per constraints for a linear/launch intent screen -->
+<script>
+        // Optional: Simple vanilla JS to fade out the splash screen after a delay
+        // Simulating transition to the main app
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 1s ease-out';
+                // Note: In a real app, this would route to the next screen.
+                // Here we just dim slightly to demonstrate interaction capability.
+                document.body.style.opacity = '0.9';
+            }, 3000);
+        });
+    </script>
+</body></html>

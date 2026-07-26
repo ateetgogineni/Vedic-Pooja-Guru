@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panchangam - Vedic Vidhi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#ff7261",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffdf9d",
+                        "tertiary-fixed-dim": "#f0c04d",
+                        "secondary": "#aa3529",
+                        "on-surface-variant": "#554337",
+                        "on-primary-container": "#572a00",
+                        "secondary-fixed": "#ffdad5",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "surface-dim": "#e9d7cb",
+                        "on-secondary-fixed-variant": "#891c15",
+                        "surface-bright": "#fff8f5",
+                        "surface": "#fff8f5",
+                        "surface-tint": "#924b00",
+                        "primary-container": "#e9862e",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "background": "#fff8f5",
+                        "on-primary-fixed-variant": "#6f3800",
+                        "on-tertiary-container": "#463300",
+                        "on-tertiary-fixed": "#251a00",
+                        "inverse-primary": "#ffb781",
+                        "muhurat-amber": "#D99A2B",
+                        "inverse-on-surface": "#ffede3",
+                        "surface-variant": "#f2dfd4",
+                        "error-container": "#ffdad6",
+                        "sacred-green": "#4C7A5A",
+                        "on-background": "#231a13",
+                        "outline-variant": "#dbc2b1",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#c59827",
+                        "surface-container-highest": "#f2dfd4",
+                        "on-secondary-fixed": "#410001",
+                        "on-secondary-container": "#700605",
+                        "tertiary": "#785a00",
+                        "outline": "#887365",
+                        "soft-sand": "#F3E9D6",
+                        "primary-fixed": "#ffdcc4",
+                        "primary-fixed-dim": "#ffb781",
+                        "primary": "#924b00",
+                        "surface-container-high": "#f8e5d9",
+                        "secondary-fixed-dim": "#ffb4a9",
+                        "on-surface": "#231a13",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#392e27",
+                        "warm-ivory": "#FBF6EC",
+                        "surface-container-low": "#fff1e9",
+                        "on-primary-fixed": "#2f1400",
+                        "surface-container": "#fdeadf"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["notoSerif"],
+                        "label-sm": ["notoSans"],
+                        "headline-md": ["notoSerif"],
+                        "body-md": ["notoSans"],
+                        "headline-lg": ["notoSerif"],
+                        "mantra-display": ["notoSerif"],
+                        "body-lg": ["notoSans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "mantra-display": ["26px", { "lineHeight": "44px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.warm-ivory');
+            color: theme('colors.on-background');
+        }
+        .ambient-shadow {
+            box-shadow: 0 8px 30px rgba(146, 75, 0, 0.08);
+        }
+        .card-glow {
+            box-shadow: inset 0 0 20px rgba(233, 134, 46, 0.05);
+        }
+        /* Mandala watermark */
+        .mandala-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0C50 0 60 40 100 50C100 50 60 60 50 100C50 100 40 60 0 50C0 50 40 40 50 0Z' fill='%23924b00' fill-opacity='0.05'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: 60%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar (Hidden on Mobile, Visible on Desktop for navigation shell) -->
+<header class="hidden md:flex justify-between items-center px-margin-desktop py-4 w-full max-w-[1040px] mx-auto bg-surface dark:bg-surface-dim top-0 sticky z-40 border-b border-soft-sand">
+<div class="flex items-center gap-4">
+<button class="text-primary hover:bg-surface-container rounded-full p-2 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-mantra-display text-mantra-display text-primary dark:text-primary-fixed">Vedic Vidhi</h1>
+</div>
+<nav class="flex gap-6">
+<a class="text-on-surface-variant font-body-md hover:bg-surface-container transition-colors px-3 py-2 rounded-lg" href="#">Home</a>
+<a class="text-on-surface-variant font-body-md hover:bg-surface-container transition-colors px-3 py-2 rounded-lg" href="#">Library</a>
+<a class="text-primary font-bold font-body-md px-3 py-2 rounded-lg bg-surface-container" href="#">Panchangam</a>
+<a class="text-on-surface-variant font-body-md hover:bg-surface-container transition-colors px-3 py-2 rounded-lg" href="#">Profile</a>
+</nav>
+<div class="w-10 h-10 rounded-full bg-soft-sand border border-outline-variant overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A small, circular avatar portrait of a person in traditional Indian attire, softly lit with warm tones, suitable for a spiritual app profile icon." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrXbcCw1KRmUUgRr4uEfkZoOvTC29gCmiWOXKXy2o5E7dVvOcI4no6K0sN7dnB2jSAmrgxSyxDceBJ7QaLNiwIU828Ritdz8hzv-PYcaOap5ZkT8eyvKgVRg3a9XXWbAP3axg3FwClZXXy7VS9j3cAZs6XZtbfmo5YJ6Mu-ZPxUABMXbXI_7ARdE5C9M-_tgK1ttEm8RGhwRhKzTNzXXCIrGDiw0hxEpSXJhH6KjyeDFK_Ld9MZ7Fa5hk_lwUMhvpWR7DOAs_QQuP4"/>
+</div>
+</header>
+<!-- Mobile Top Header (Just for Context if needed, but TopAppBar usually handles it. We'll simplify for focus) -->
+<div class="md:hidden flex justify-between items-center px-margin-mobile py-4 bg-surface top-0 sticky z-40 border-b border-soft-sand">
+<button class="text-primary">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary">Panchangam</h1>
+<div class="w-8 h-8"></div>
+</div>
+<main class="max-w-[1040px] mx-auto px-margin-mobile md:px-margin-desktop py-8 grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Header & Date Selector -->
+<section class="col-span-1 md:col-span-12 mb-stack-md flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Today's Panchangam</h2>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                    Varanasi, Uttar Pradesh
+                </p>
+</div>
+<!-- Date Selector -->
+<div class="flex items-center bg-soft-sand rounded-xl p-1 border border-outline-variant ambient-shadow">
+<button class="p-2 hover:bg-surface-container rounded-lg text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="px-4 text-center min-w-[160px]">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Wed, Oct 25</div>
+<div class="font-body-md text-body-md text-on-background font-semibold">Shukla Paksha</div>
+</div>
+<button class="p-2 hover:bg-surface-container rounded-lg text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Main Timeline / Muhurat (Left Column Desktop) -->
+<section class="col-span-1 md:col-span-8 flex flex-col gap-stack-md">
+<!-- Auspicious Times Widget -->
+<div class="bg-soft-sand rounded-xl p-6 border border-outline-variant ambient-shadow card-glow mandala-bg">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-muhurat-amber" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+                        Auspicious Timings
+                    </h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-surface rounded-lg p-4 border border-outline-variant flex flex-col">
+<span class="font-label-sm text-label-sm text-sacred-green uppercase mb-1">Abhijit Muhurat</span>
+<span class="font-body-lg text-body-lg text-on-background font-medium">11:42 AM - 12:28 PM</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Highly auspicious for new beginnings.</span>
+</div>
+<div class="bg-surface rounded-lg p-4 border border-outline-variant flex flex-col">
+<span class="font-label-sm text-label-sm text-sacred-green uppercase mb-1">Amrit Kalam</span>
+<span class="font-body-lg text-body-lg text-on-background font-medium">04:15 PM - 05:50 PM</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Favorable duration.</span>
+</div>
+</div>
+</div>
+<!-- Inauspicious Times (Rahu Kaal etc) -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-secondary flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dark_mode</span>
+                    Inauspicious Timings
+                </h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-3 bg-error-container/30 rounded-lg border border-error-container">
+<div>
+<div class="font-label-sm text-label-sm text-error uppercase">Rahu Kaal</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-sm">Avoid starting important tasks.</div>
+</div>
+<div class="font-body-lg text-body-lg text-on-background font-medium">12:15 PM - 01:42 PM</div>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface-variant rounded-lg">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">Yamaganda</div>
+</div>
+<div class="font-body-md text-body-md text-on-background">07:50 AM - 09:18 AM</div>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface-variant rounded-lg">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">Gulika Kaal</div>
+</div>
+<div class="font-body-md text-body-md text-on-background">10:45 AM - 12:12 PM</div>
+</div>
+</div>
+</div>
+<!-- Visual Timeline (Mockup) -->
+<div class="bg-soft-sand rounded-xl p-6 border border-outline-variant ambient-shadow">
+<h3 class="font-body-lg text-body-lg text-primary mb-4">Day Overview</h3>
+<div class="relative h-12 bg-surface-variant rounded-full overflow-hidden flex shadow-inner">
+<!-- Simplified visual representation of blocks -->
+<div class="w-1/4 h-full bg-surface-variant" title="Morning"></div>
+<div class="w-1/6 h-full bg-sacred-green/40 border-x border-sacred-green/20" title="Auspicious"></div>
+<div class="w-1/5 h-full bg-error-container border-x border-error" title="Rahu Kaal"></div>
+<div class="w-1/3 h-full bg-surface-variant" title="Evening"></div>
+</div>
+<div class="flex justify-between mt-2 font-label-sm text-label-sm text-on-surface-variant">
+<span>Sunrise 6:15 AM</span>
+<span>Noon</span>
+<span>Sunset 5:45 PM</span>
+</div>
+</div>
+</section>
+<!-- Five Limbs Data Data (Right Column Desktop) -->
+<section class="col-span-1 md:col-span-4 flex flex-col gap-4">
+<div class="bg-soft-sand rounded-xl p-6 border border-outline-variant ambient-shadow h-full">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 border-b border-outline-variant pb-2">The Five Limbs</h3>
+<ul class="space-y-6">
+<!-- Tithi -->
+<li class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">nightlight</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide">Tithi</h4>
+<p class="font-body-lg text-body-lg text-on-background font-medium">Dashami</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Ends at 02:30 PM</p>
+</div>
+</li>
+<!-- Nakshatra -->
+<li class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">star</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide">Nakshatra</h4>
+<p class="font-body-lg text-body-lg text-on-background font-medium">Rohini</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Ends at 08:45 PM</p>
+</div>
+</li>
+<!-- Yoga -->
+<li class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">self_improvement</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide">Yoga</h4>
+<p class="font-body-lg text-body-lg text-on-background font-medium">Shobhana</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Ends at 11:20 AM</p>
+</div>
+</li>
+<!-- Karana -->
+<li class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">change_history</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide">Karana</h4>
+<p class="font-body-lg text-body-lg text-on-background font-medium">Gara</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Ends at 02:30 PM</p>
+</div>
+</li>
+<!-- Vaar (Day) -->
+<li class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wide">Vaar</h4>
+<p class="font-body-lg text-body-lg text-on-background font-medium">Budhawara</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Wednesday</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Visible on Mobile, Hidden on Desktop) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-margin-mobile py-2 bg-surface-container dark:bg-surface-container-lowest shadow-[0_-4px_20px_rgba(146,75,0,0.08)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm mt-1">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-sm text-label-sm mt-1">Panchangam</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1 hover:text-primary dark:hover:text-primary-fixed transition-all active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

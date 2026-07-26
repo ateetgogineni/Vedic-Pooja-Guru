@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Muhurat Suggestion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#891c15",
+                      "inverse-primary": "#ffb781",
+                      "inverse-on-surface": "#ffede3",
+                      "tertiary-fixed": "#ffdf9d",
+                      "on-primary-fixed": "#2f1400",
+                      "secondary": "#aa3529",
+                      "muhurat-amber": "#D99A2B",
+                      "primary-fixed-dim": "#ffb781",
+                      "primary-fixed": "#ffdcc4",
+                      "outline-variant": "#dbc2b1",
+                      "surface-container-low": "#fff1e9",
+                      "on-tertiary-fixed": "#251a00",
+                      "on-tertiary-container": "#463300",
+                      "surface-bright": "#fff8f5",
+                      "tertiary-fixed-dim": "#f0c04d",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#572a00",
+                      "surface-container": "#fdeadf",
+                      "surface-dim": "#e9d7cb",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#f2dfd4",
+                      "tertiary": "#785a00",
+                      "surface-container-high": "#f8e5d9",
+                      "outline": "#887365",
+                      "background": "#fff8f5",
+                      "warm-ivory": "#FBF6EC",
+                      "on-background": "#231a13",
+                      "on-tertiary-fixed-variant": "#5b4300",
+                      "secondary-container": "#ff7261",
+                      "on-secondary-fixed": "#410001",
+                      "on-primary-fixed-variant": "#6f3800",
+                      "surface-container-highest": "#f2dfd4",
+                      "on-surface": "#231a13",
+                      "secondary-fixed-dim": "#ffb4a9",
+                      "on-surface-variant": "#554337",
+                      "tertiary-container": "#c59827",
+                      "on-secondary-container": "#700605",
+                      "on-error-container": "#93000a",
+                      "surface": "#fff8f5",
+                      "surface-tint": "#924b00",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "primary-container": "#e9862e",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#392e27",
+                      "soft-sand": "#F3E9D6",
+                      "sacred-green": "#4C7A5A",
+                      "primary": "#924b00",
+                      "secondary-fixed": "#ffdad5",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "0.5rem",
+                      "margin-desktop": "2.5rem",
+                      "stack-lg": "3rem",
+                      "margin-mobile": "1rem",
+                      "stack-md": "1.5rem",
+                      "gutter": "1rem"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "notoSerif"
+                      ],
+                      "body-lg": [
+                              "notoSans"
+                      ],
+                      "label-sm": [
+                              "notoSans"
+                      ],
+                      "body-md": [
+                              "notoSans"
+                      ],
+                      "mantra-display": [
+                              "notoSerif"
+                      ],
+                      "headline-lg-mobile": [
+                              "notoSerif"
+                      ],
+                      "headline-lg": [
+                              "notoSerif"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "mantra-display": [
+                              "26px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: theme('colors.warm-ivory');
+        }
+        .mandala-watermark {
+            background-image: url('data:image/svg+xml;utf8,<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100 0 C120 40 160 80 200 100 C160 120 120 160 100 200 C80 160 40 120 0 100 C40 80 80 40 100 0 Z" fill="%23D99A2B" opacity="0.05"/></svg>');
+            background-repeat: no-repeat;
+            background-position: bottom right;
+        }
+        .ambient-shadow {
+            box-shadow: 0 10px 30px -10px rgba(146, 75, 0, 0.08);
+        }
+        .glow-shadow:hover {
+            box-shadow: 0 8px 20px -6px rgba(233, 134, 46, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen flex flex-col font-body-md antialiased">
+<!-- TopAppBar -->
+<header class="w-full top-0 bg-surface dark:bg-surface-dim flat no shadows border-b border-surface-variant/50 relative z-20">
+<div class="flex justify-between items-center px-margin-mobile py-4 w-full max-w-7xl mx-auto">
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-mantra-display text-mantra-display text-primary dark:text-primary-fixed tracking-tight">Vedic Vidhi</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant hover:bg-surface-container dark:hover:bg-surface-container-highest transition-colors active:scale-95 duration-200">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A small circular avatar placeholder image showing a softly lit, minimalist silhouette of a person against a warm ivory background, designed for a serene, high-end wellness or spiritual app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBovvre76vz9_aWanCVMqqBDMNdoj09mlUsYa9V53-tUI4zBta79KKsWnImimM7ruFRyEp1YTMowwKUJ-YQnRJu3mACdmYiz5eRpAi1rfBxWXxrGJj2lKnSqFtDPZIF9Xf2mK6C95OcyCygLCiQtCpGhKrAJn55mW3kB1HEDjx5MueZIHnAxnd5edLwOyd3jzbSx-aoweNBkTNYsRzcqxHwhhlkzLzAhzIKec4hef4Lgunc67wX5A4gWiU_s4N-gMm10fT-cvQ-wHaU"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-md flex flex-col items-center justify-center relative">
+<!-- Subtle background texture element -->
+<div class="absolute inset-0 pointer-events-none flex justify-center items-center opacity-10">
+<div class="w-96 h-96 bg-contain bg-center bg-no-repeat" data-alt="A very faint, highly abstract and minimal line-art mandala pattern in a soft gold tone on a pure white background, intended to be used as a subtle watermark texture in a spiritual wellness UI." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKMOQ9Wyuu6d2aQJFpond6UtgxuD_tyPxG2BKRiKNBMOHR_Xyy-2nP9i00iHqCWeHs1BxmqJZ0NJznyJkxVRaw4vyi6J3bBNhuEwIEH6ppFM8wWiM-Bp8CwNThNJbSoDcnvA1Jtfi3ccaGDW0a3xglwJZ3CaLYDciOpYnpWyC6RDA2QjHGKCm9rC_NpgVIApgIcsQzrjGvQ4WbkQQQBVdhYIwaGEG66YklqKMr0Cwa2QcIYj_htLv6LoPihYChq9XmBqX3IYe98xhz')"></div>
+</div>
+<div class="w-full max-w-md flex flex-col gap-stack-md z-10">
+<!-- Header Section -->
+<div class="text-center space-y-stack-sm mb-4">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Best time for this pooja</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">We calculated the most auspicious muhurat based on your location and planetary alignments.</p>
+</div>
+<!-- Primary Muhurat Card -->
+<div class="bg-soft-sand rounded-xl p-6 ambient-shadow mandala-watermark border border-outline-variant/30 flex flex-col items-center text-center relative overflow-hidden transition-all duration-300 transform hover:-translate-y-1">
+<!-- Inner glow top border effect -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-muhurat-amber to-transparent opacity-50"></div>
+<div class="mb-4">
+<span class="material-symbols-outlined text-muhurat-amber text-[40px] opacity-80" data-icon="wb_sunny" data-weight="fill">wb_sunny</span>
+</div>
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Recommended</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Thursday, July 30th</h3>
+<div class="flex items-center gap-2 mt-2 mb-6">
+<span class="font-body-lg text-body-lg text-on-surface-variant">06:45 AM</span>
+<div class="w-8 h-px bg-outline-variant/60"></div>
+<span class="font-body-lg text-body-lg text-on-surface-variant">09:15 AM</span>
+</div>
+<!-- Spiritual Explanation Box -->
+<div class="bg-surface-bright/80 rounded-lg p-4 w-full border border-surface-variant flex items-start gap-3 text-left">
+<span class="material-symbols-outlined text-sacred-green shrink-0 mt-0.5" data-icon="info">info</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Brahma Muhurta &amp; Shukla Paksha</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">This time aligns perfectly with the early morning purity of Brahma Muhurta during the auspicious Shukla Paksha (waxing moon phases), ideal for new beginnings.</p>
+</div>
+</div>
+</div>
+<!-- Alternative Options Link -->
+<div class="text-center mt-2">
+<button class="font-label-sm text-label-sm text-primary hover:text-muhurat-amber transition-colors flex items-center justify-center gap-1 mx-auto">
+                    View alternative dates
+                    <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Sticky on mobile, relative on desktop if needed, but keeping it fixed at bottom for ritual ease) -->
+<div class="w-full bg-surface-bright border-t border-surface-variant/30 p-margin-mobile md:px-margin-desktop sticky bottom-0 z-30 pb-safe">
+<div class="max-w-md mx-auto">
+<button class="w-full bg-primary-container text-on-primary font-body-lg text-body-lg py-4 rounded-xl shadow-sm glow-shadow transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2">
+                Continue to Preparation
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

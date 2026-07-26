@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Budget Estimator - Vedic Vidhi</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&amp;family=Noto+Serif:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#ff7261",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed": "#ffdf9d",
+                    "tertiary-fixed-dim": "#f0c04d",
+                    "secondary": "#aa3529",
+                    "on-surface-variant": "#554337",
+                    "on-primary-container": "#572a00",
+                    "secondary-fixed": "#ffdad5",
+                    "on-tertiary-fixed-variant": "#5b4300",
+                    "surface-dim": "#e9d7cb",
+                    "on-secondary-fixed-variant": "#891c15",
+                    "surface-bright": "#fff8f5",
+                    "surface": "#fff8f5",
+                    "surface-tint": "#924b00",
+                    "primary-container": "#e9862e",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "background": "#fff8f5",
+                    "on-primary-fixed-variant": "#6f3800",
+                    "on-tertiary-container": "#463300",
+                    "on-tertiary-fixed": "#251a00",
+                    "inverse-primary": "#ffb781",
+                    "muhurat-amber": "#D99A2B",
+                    "inverse-on-surface": "#ffede3",
+                    "surface-variant": "#f2dfd4",
+                    "error-container": "#ffdad6",
+                    "sacred-green": "#4C7A5A",
+                    "on-background": "#231a13",
+                    "outline-variant": "#dbc2b1",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#c59827",
+                    "surface-container-highest": "#f2dfd4",
+                    "on-secondary-fixed": "#410001",
+                    "on-secondary-container": "#700605",
+                    "tertiary": "#785a00",
+                    "outline": "#887365",
+                    "soft-sand": "#F3E9D6",
+                    "primary-fixed": "#ffdcc4",
+                    "primary-fixed-dim": "#ffb781",
+                    "primary": "#924b00",
+                    "surface-container-high": "#f8e5d9",
+                    "secondary-fixed-dim": "#ffb4a9",
+                    "on-surface": "#231a13",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#392e27",
+                    "warm-ivory": "#FBF6EC",
+                    "surface-container-low": "#fff1e9",
+                    "on-primary-fixed": "#2f1400",
+                    "surface-container": "#fdeadf"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "margin-mobile": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": [
+                            "notoSerif"
+                    ],
+                    "label-sm": [
+                            "notoSans"
+                    ],
+                    "headline-md": [
+                            "notoSerif"
+                    ],
+                    "body-md": [
+                            "notoSans"
+                    ],
+                    "headline-lg": [
+                            "notoSerif"
+                    ],
+                    "mantra-display": [
+                            "notoSerif"
+                    ],
+                    "body-lg": [
+                            "notoSans"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": [
+                            "28px",
+                            {
+                                    "lineHeight": "36px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "mantra-display": [
+                            "26px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+        }
+        
+        /* Subtle mandala watermark class */
+        .mandala-watermark {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><circle cx="50" cy="50" r="40" fill="none" stroke="%23924b00" stroke-width="2"/><path d="M50 10 L50 90 M10 50 L90 50 M22 22 L78 78 M22 78 L78 22" stroke="%23924b00" stroke-width="1"/></svg>');
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: 50%;
+        }
+        
+        /* Ambient shadow for cards */
+        .ambient-shadow {
+            box-shadow: 0 10px 30px -5px rgba(146, 75, 0, 0.08);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen pb-32 selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 bg-surface dark:bg-surface-dim sticky z-40 transition-colors">
+<div class="flex justify-between items-center px-margin-mobile py-4 w-full max-w-7xl mx-auto">
+<button class="text-on-surface-variant hover:bg-surface-container transition-colors p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-mantra-display text-mantra-display text-primary dark:text-primary-fixed">Vedic Vidhi</h1>
+<button class="text-on-surface-variant hover:bg-surface-container transition-colors p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-md">
+<!-- Header Section -->
+<div class="mb-stack-lg text-center md:text-left flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Satyanarayan Pooja</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Estimated Samagri Budget Breakdown</p>
+</div>
+<button class="bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm py-2 px-4 rounded border border-outline-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-size: 18px;">print</span>
+                Export List
+            </button>
+</div>
+<!-- Budget Grid Container (Bento style) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-stack-lg">
+<!-- Main Itemized List (Spans 8 cols on desktop) -->
+<div class="md:col-span-8 space-y-4">
+<!-- Category 1: Essential Items -->
+<div class="bg-soft-sand rounded-xl p-6 ambient-shadow mandala-watermark border border-outline-variant/30">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 border-b border-outline-variant/50 pb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-saffron">eco</span>
+                        Essential Samagri
+                    </h3>
+<div class="space-y-4">
+<!-- Item Row -->
+<div class="flex flex-wrap sm:flex-nowrap justify-between items-center gap-4 bg-surface/50 p-3 rounded-lg hover:bg-surface transition-colors border border-transparent hover:border-outline-variant/30">
+<div class="flex-grow min-w-[200px]">
+<div class="font-body-md text-body-md font-semibold">Haldi &amp; Kumkum</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">100g each, premium quality</div>
+</div>
+<div class="flex items-center gap-3">
+<label class="sr-only">Price for Haldi &amp; Kumkum</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md">₹</span>
+<input aria-label="Amount" class="pl-8 pr-3 py-2 bg-surface border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary w-24 text-right font-body-md text-body-md outline-none transition-shadow" type="number" value="150"/>
+</div>
+</div>
+</div>
+<!-- Item Row -->
+<div class="flex flex-wrap sm:flex-nowrap justify-between items-center gap-4 bg-surface/50 p-3 rounded-lg hover:bg-surface transition-colors border border-transparent hover:border-outline-variant/30">
+<div class="flex-grow min-w-[200px]">
+<div class="font-body-md text-body-md font-semibold">Akshat (Rice)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">500g, unbroken grains</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md">₹</span>
+<input class="pl-8 pr-3 py-2 bg-surface border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary w-24 text-right font-body-md text-body-md outline-none transition-shadow" type="number" value="60"/>
+</div>
+</div>
+</div>
+<!-- Item Row -->
+<div class="flex flex-wrap sm:flex-nowrap justify-between items-center gap-4 bg-surface/50 p-3 rounded-lg hover:bg-surface transition-colors border border-transparent hover:border-outline-variant/30">
+<div class="flex-grow min-w-[200px]">
+<div class="font-body-md text-body-md font-semibold">Ghee</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">500ml, pure cow ghee</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md">₹</span>
+<input class="pl-8 pr-3 py-2 bg-surface border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary w-24 text-right font-body-md text-body-md outline-none transition-shadow" type="number" value="450"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Category 2: Perishables -->
+<div class="bg-soft-sand rounded-xl p-6 ambient-shadow mandala-watermark border border-outline-variant/30">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 border-b border-outline-variant/50 pb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-saffron">local_florist</span>
+                        Fresh Items (Fruits &amp; Flowers)
+                    </h3>
+<div class="space-y-4">
+<!-- Item Row -->
+<div class="flex flex-wrap sm:flex-nowrap justify-between items-center gap-4 bg-surface/50 p-3 rounded-lg hover:bg-surface transition-colors border border-transparent hover:border-outline-variant/30">
+<div class="flex-grow min-w-[200px]">
+<div class="font-body-md text-body-md font-semibold">Panchamrit Ingredients</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Milk, Curd, Honey, Sugar, Ghee</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md">₹</span>
+<input class="pl-8 pr-3 py-2 bg-surface border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary w-24 text-right font-body-md text-body-md outline-none transition-shadow" type="number" value="300"/>
+</div>
+</div>
+</div>
+<!-- Item Row -->
+<div class="flex flex-wrap sm:flex-nowrap justify-between items-center gap-4 bg-surface/50 p-3 rounded-lg hover:bg-surface transition-colors border border-transparent hover:border-outline-variant/30">
+<div class="flex-grow min-w-[200px]">
+<div class="font-body-md text-body-md font-semibold">Floral Garland &amp; Loose Flowers</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Assorted seasonal, Marigold, Rose</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant font-body-md">₹</span>
+<input class="pl-8 pr-3 py-2 bg-surface border border-outline-variant rounded focus:border-primary focus:ring-1 focus:ring-primary w-24 text-right font-body-md text-body-md outline-none transition-shadow" type="number" value="500"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Custom Item Button -->
+<button class="w-full py-4 border-2 border-dashed border-outline-variant text-on-surface-variant font-label-sm text-label-sm rounded-xl hover:bg-surface-container transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                    Add Custom Samagri Item
+                </button>
+</div>
+<!-- Summary Sidebar (Spans 4 cols on desktop, sticky) -->
+<div class="md:col-span-4 relative">
+<div class="sticky top-24 bg-surface-container-low rounded-xl p-6 ambient-shadow border border-outline-variant/20 flex flex-col h-auto">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                        Total Estimate
+                    </h3>
+<div class="space-y-4 flex-grow">
+<div class="flex justify-between items-center text-on-surface-variant font-body-md text-body-md">
+<span>Essential Samagri</span>
+<span>₹ 660</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-body-md text-body-md">
+<span>Fresh Items</span>
+<span>₹ 800</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-body-md text-body-md">
+<span>Dakshina (Suggested)</span>
+<span>₹ 1100</span>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/50">
+<div class="flex justify-between items-baseline">
+<span class="font-headline-md text-headline-md text-on-surface">Total</span>
+<span class="font-headline-lg text-headline-lg text-primary">₹ 2,560</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 text-right">Approximate local market cost</p>
+</div>
+</div>
+<div class="mt-8 space-y-3">
+<button class="w-full bg-primary-container text-on-primary-container font-label-sm text-label-sm py-3 px-4 rounded-full shadow-sm hover:shadow-md transition-shadow active:scale-95 duration-200">
+                            Save Estimate
+                        </button>
+<button class="w-full bg-transparent border border-primary text-primary font-label-sm text-label-sm py-3 px-4 rounded-full hover:bg-surface-container transition-colors active:scale-95 duration-200">
+                            Find Local Vendors
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Optional Visual Decorator -->
+<div class="fixed bottom-0 left-0 w-full h-32 pointer-events-none z-[-1]" style="background: linear-gradient(to top, rgba(233,134,46,0.05), transparent);"></div>
+</body></html>
