@@ -1,4 +1,4 @@
-# Vedic Vidhi — Mobile (bare React Native CLI)
+# Vedic Pooja Guru — Mobile (bare React Native CLI)
 
 A clickable prototype of the Vedic Pooja Guru MVP, built with the **React
 Native CLI** (no Expo). See `../docs/PRD.md` for product scope and
