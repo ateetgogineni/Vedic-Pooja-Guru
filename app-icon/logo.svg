@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B23A2E"/>
+      <stop offset="55%" stop-color="#924B00"/>
+      <stop offset="100%" stop-color="#5C2E00"/>
+    </linearGradient>
+    <radialGradient id="haloGrad" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#FFD27A" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flameOuter" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFE3A3"/>
+      <stop offset="45%" stop-color="#FFB43D"/>
+      <stop offset="100%" stop-color="#E9862E"/>
+    </linearGradient>
+    <linearGradient id="flameInner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7A2E12"/>
+      <stop offset="100%" stop-color="#B23A2E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- App icon background (rounded square, iOS/Android squircle-style) -->
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+
+  <!-- subtle traditional mandala watermark -->
+  <g opacity="0.10" stroke="#FFE3A3" stroke-width="2" fill="none">
+    <circle cx="256" cy="256" r="200"/>
+    <circle cx="256" cy="256" r="160"/>
+    <circle cx="256" cy="256" r="120"/>
+  </g>
+
+  <!-- warm halo glow behind the flame -->
+  <circle cx="256" cy="235" r="190" fill="url(#haloGrad)"/>
+
+  <!-- flame glyph, layered (outer / inner cutout / core) -->
+  <g transform="translate(256 268)">
+    <path fill="url(#flameOuter)" d="M0 -158c-10 62-42 100-74 136C-108 -0 -134 44 -134 92
+      c0 96 60 154 134 154s134 -58 134 -154c0 -50-24-90-54-124
+      c-4 28-18 48-36 62C36 -38 12 -102 0 -158z"/>
+    <path fill="url(#flameInner)" d="M0 -18c-6 28-22 46-38 62c-12 14-20 30-20 48
+      a58 58 0 00116 0c0-20-12-36-26-50
+      c-2 12-8 20-14 26C14 44 4 12 0 -18z"/>
+    <ellipse cx="0" cy="96" rx="17" ry="24" fill="url(#flameOuter)"/>
+  </g>
+
+  <!-- three small sacred sparks above the flame -->
+  <g fill="#FFE3A3">
+    <circle cx="256" cy="66" r="7"/>
+    <circle cx="212" cy="90" r="4.5"/>
+    <circle cx="300" cy="90" r="4.5"/>
+  </g>
+</svg>

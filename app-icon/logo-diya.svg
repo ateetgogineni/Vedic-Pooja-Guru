@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B23A2E"/>
+      <stop offset="55%" stop-color="#924B00"/>
+      <stop offset="100%" stop-color="#5C2E00"/>
+    </linearGradient>
+    <radialGradient id="haloGrad" cx="50%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#FFD27A" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- background badge -->
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+
+  <!-- mandala rings -->
+  <g opacity="0.10" stroke="#FFE3A3" stroke-width="2" fill="none">
+    <circle cx="256" cy="256" r="200"/>
+    <circle cx="256" cy="256" r="160"/>
+    <circle cx="256" cy="256" r="120"/>
+  </g>
+
+  <!-- halo glow -->
+  <circle cx="256" cy="240" r="190" fill="url(#haloGrad)"/>
+
+  <!-- faint connecting stars -->
+  <g stroke="#FFE9BE" stroke-width="1.5" stroke-linecap="round" opacity="0.16" fill="none">
+    <path d="M86 96 L150 60"/>
+    <path d="M430 120 L392 190"/>
+    <path d="M120 410 L256 452 L400 415"/>
+  </g>
+  <g fill="#FFE9BE" opacity="0.4">
+    <circle cx="86" cy="96" r="3.4"/>
+    <circle cx="150" cy="60" r="2.4"/>
+    <circle cx="430" cy="120" r="3"/>
+    <circle cx="392" cy="190" r="2.2"/>
+    <circle cx="120" cy="410" r="2.6"/>
+    <circle cx="256" cy="452" r="3.2"/>
+    <circle cx="400" cy="415" r="2.4"/>
+    <circle cx="60" cy="300" r="2"/>
+    <circle cx="452" cy="300" r="2.4"/>
+  </g>
+
+  <!-- diya: dish + single clean flame -->
+  <g transform="translate(256 300)">
+    <path d="M-118 6 C-118 40-64 62 0 62 C64 62 118 40 118 6
+             C118-6 90-14 60-8 C36-3 22 10 0 10 C-22 10-36-3-60-8
+             C-90-14-118-6-118 6Z" fill="#FFE9BE"/>
+    <ellipse cx="0" cy="4" rx="98" ry="14" fill="#B23A2E" opacity="0.35"/>
+    <path d="M0-128
+             c-24 34-40 56-40 84
+             a40 40 0 0080 0
+             c0-28-16-50-40-84z" fill="#FFB43D"/>
+    <path d="M0-70 c-10 18-16 30-16 44 a16 16 0 0032 0c0-14-6-26-16-44z" fill="#FFE9BE"/>
+  </g>
+</svg>
