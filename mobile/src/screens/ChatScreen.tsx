@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { Alert, FlatList, KeyboardAvoidingView, Platform, Pressable, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppText } from '@/components/ui/app-text';
 import { Icon } from '@/components/ui/icon';
@@ -7,33 +8,32 @@ import { TextField } from '@/components/ui/text-field';
 import { TopBar } from '@/components/ui/top-bar';
 import { Radius, Spacing } from '@/constants/theme';
 import { getPoojaById, localize } from '@/data/poojas';
-import { usePrefs } from '@/lib/prefs-context';
+import { type StringKey, useTranslation } from '@/lib/i18n';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppRoute } from '@/navigation/hooks';
 
 type Message = { id: string; from: 'user' | 'assistant'; text: string };
 
-const CANNED: { match: RegExp; reply: string }[] = [
-  { match: /mango leaves|torana/i, reply: 'You can use betel leaves as a common substitute, or simply offer an extra flower with devotion.' },
-  { match: /late|delay|time/i, reply: 'It is generally fine to start a little later than the suggested muhurat — devotion and sincerity matter most. For strict timing needs, consult a priest.' },
-  { match: /kalash|substitute/i, reply: 'A steel or brass pot filled with water works well if you do not have a traditional kalash.' },
-  { match: /how many|quantity|flowers|modak/i, reply: 'Exact quantities for your headcount are on the Item Checklist screen — they update automatically as you change your participant count.' },
+const CANNED: { match: RegExp; replyKey: StringKey }[] = [
+  { match: /mango leaves|torana/i, replyKey: 'chat.cannedMangoLeaves' },
+  { match: /late|delay|time/i, replyKey: 'chat.cannedLate' },
+  { match: /kalash|substitute/i, replyKey: 'chat.cannedKalash' },
+  { match: /how many|quantity|flowers|modak/i, replyKey: 'chat.cannedQuantity' },
 ];
-
-const SUGGESTIONS = ['Is it okay to start late?', 'Alternative for Kalash?'];
 
 export function ChatScreen() {
   const { colors } = useAppTheme();
-  const { languageCode } = usePrefs();
+  const { t, languageCode } = useTranslation();
   const { id, step } = useAppRoute('Chat').params;
   const pooja = getPoojaById(id);
   const listRef = useRef<FlatList<Message>>(null);
+  const SUGGESTIONS = [t('chat.suggestion1'), t('chat.suggestion2')];
 
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 'seed',
       from: 'assistant',
-      text: `Namaste! Ask me anything about ${pooja ? localize(pooja.name, languageCode) : 'your pooja'} — item substitutes, timing, or what a step means.`,
+      text: t('chat.seed', { name: pooja ? localize(pooja.name, languageCode) : t('chat.yourPooja') }),
     },
   ]);
   const [input, setInput] = useState('');
@@ -43,9 +43,7 @@ export function ChatScreen() {
     if (!trimmed) return;
     const userMsg: Message = { id: `${Date.now()}-u`, from: 'user', text: trimmed };
     const found = CANNED.find((c) => c.match.test(trimmed));
-    const reply =
-      found?.reply ??
-      'I want to make sure that answer is grounded and accurate. For questions outside what I can verify, please consult a priest — full AI guidance is coming in a future update.';
+    const reply = t(found?.replyKey ?? 'chat.fallbackReply');
     const assistantMsg: Message = { id: `${Date.now()}-a`, from: 'assistant', text: reply };
     setMessages((prev) => [...prev, userMsg, assistantMsg]);
     setInput('');
@@ -53,13 +51,14 @@ export function ChatScreen() {
   };
 
   return (
-    <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-      <TopBar title="Vedic Vidhi" />
+    <SafeAreaView edges={['top', 'bottom']} style={{ flex: 1, backgroundColor: colors.warmIvory }}>
+      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        <TopBar title="Vedic Pooja Guru" />
       {step ? (
         <View style={[styles.banner, { backgroundColor: colors.surfaceContainer, borderBottomColor: colors.softSand }]}>
           <Icon name="info" color={colors.primaryContainer} size={18} />
           <AppText variant="labelSm" color="primary" style={{ letterSpacing: 1 }}>
-            CURRENT STEP: {step.toString().toUpperCase()}
+            {t('chat.currentStep', { step: step.toString().toUpperCase() })}
           </AppText>
         </View>
       ) : null}
@@ -103,20 +102,21 @@ export function ChatScreen() {
         />
         <View style={styles.inputRow}>
           <View style={{ flex: 1 }}>
-            <TextField label="" placeholder="Type your question…" value={input} onChangeText={setInput} onSubmitEditing={() => send(input)} />
+            <TextField label="" placeholder={t('chat.placeholder')} value={input} onChangeText={setInput} onSubmitEditing={() => send(input)} />
           </View>
           <Pressable onPress={() => send(input)} style={[styles.sendBtn, { backgroundColor: colors.primaryContainer }]}>
             <Icon name="send" color={colors.onPrimary} size={22} />
           </Pressable>
           <Pressable
-            onPress={() => Alert.alert('Coming soon', 'Voice input will be available in a future update.')}
+            onPress={() => Alert.alert(t('common.comingSoon'), t('chat.voiceComingSoonBody'))}
             style={[styles.micBtn, { backgroundColor: colors.primaryContainer }]}
           >
             <Icon name="mic" color={colors.onPrimary} size={26} />
           </Pressable>
         </View>
       </View>
-    </KeyboardAvoidingView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 

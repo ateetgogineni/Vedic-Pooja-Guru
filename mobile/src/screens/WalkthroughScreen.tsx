@@ -6,14 +6,14 @@ import { Icon } from '@/components/ui/icon';
 import { Screen } from '@/components/ui/screen';
 import { Radius, Spacing } from '@/constants/theme';
 import { getPoojaById, localize } from '@/data/poojas';
-import { usePrefs } from '@/lib/prefs-context';
+import { useTranslation } from '@/lib/i18n';
 import { useAppTheme } from '@/lib/theme-context';
 import * as tts from '@/lib/tts';
 import { useAppNavigation, useAppRoute } from '@/navigation/hooks';
 
 export function WalkthroughScreen() {
   const { colors } = useAppTheme();
-  const { languageCode } = usePrefs();
+  const { t, languageCode } = useTranslation();
   const navigation = useAppNavigation();
   const { id } = useAppRoute('Walkthrough').params;
   const pooja = getPoojaById(id);
@@ -46,7 +46,7 @@ export function WalkthroughScreen() {
             <Icon name="arrow-back" color={colors.primary} size={26} />
           </Pressable>
           <AppText variant="labelSm" color="outline">
-            Step {stepIndex + 1} of {total}
+            {t('walkthrough.stepOf', { current: stepIndex + 1, total })}
           </AppText>
           <Pressable onPress={() => setMuted((m) => !m)} hitSlop={8} style={styles.iconBtn}>
             <Icon name={muted ? 'volume-off' : 'volume-up'} color={colors.primary} size={24} />
@@ -85,7 +85,7 @@ export function WalkthroughScreen() {
           >
             <Icon name="arrow-back" color={colors.primaryContainer} size={20} />
             <AppText variant="labelSm" color="primaryContainer">
-              Previous
+              {t('walkthrough.previous')}
             </AppText>
           </Pressable>
           <Pressable
@@ -93,7 +93,7 @@ export function WalkthroughScreen() {
             style={[styles.navBtn, { backgroundColor: colors.primaryContainer }]}
           >
             <AppText variant="labelSm" style={{ color: colors.onPrimary }}>
-              {stepIndex === total - 1 ? 'Finish' : 'Next Step'}
+              {t(stepIndex === total - 1 ? 'walkthrough.finish' : 'walkthrough.nextStep')}
             </AppText>
             <Icon name="arrow-forward" color={colors.onPrimary} size={20} />
           </Pressable>
@@ -101,7 +101,7 @@ export function WalkthroughScreen() {
       </View>
 
       <Pressable
-        onPress={() => navigation.navigate('Chat', { id: pooja.id, step: localize(step.title, languageCode) })}
+        onPress={() => navigation.push('Chat', { id: pooja.id, step: localize(step.title, languageCode) })}
         style={[styles.fab, { backgroundColor: colors.primaryContainer }]}
       >
         <Icon name="mic" color={colors.onPrimary} size={26} />
