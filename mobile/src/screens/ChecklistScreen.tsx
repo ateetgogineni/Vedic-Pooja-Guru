@@ -11,8 +11,8 @@ import { TopBar } from '@/components/ui/top-bar';
 import { Spacing } from '@/constants/theme';
 import { CATEGORY_LABELS, calculateChecklist, getPoojaById, localize, type PlanningOptions } from '@/data/poojas';
 import { useAuth } from '@/lib/auth-context';
+import { useTranslation } from '@/lib/i18n';
 import { loadChecklistState, loadPlanningOptions, saveChecklistState } from '@/lib/plan-store';
-import { usePrefs } from '@/lib/prefs-context';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation, useAppRoute } from '@/navigation/hooks';
 
@@ -25,7 +25,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 export function ChecklistScreen() {
   const { colors } = useAppTheme();
   const { user } = useAuth();
-  const { languageCode } = usePrefs();
+  const { t, languageCode } = useTranslation();
   const navigation = useAppNavigation();
   const { id } = useAppRoute('Checklist').params;
   const pooja = getPoojaById(id);
@@ -67,17 +67,17 @@ export function ChecklistScreen() {
   const checkedCount = groups.reduce((sum, g) => sum + g.entries.filter((e) => checked[e.item.key]).length, 0);
 
   return (
-    <Screen scroll edges={['top']} contentStyle={{ paddingBottom: 140 }}>
+    <Screen scroll edges={['top', 'bottom']} contentStyle={{ paddingBottom: 140 }}>
       <TopBar />
       <View style={styles.content}>
         <View>
           <AppText variant="headlineLgMobile" color="primary">
-            Checklist: {localize(pooja.name, languageCode)}
+            {t('checklist.titlePrefix', { name: localize(pooja.name, languageCode) })}
           </AppText>
           <AppText variant="bodyMd" color="onSurfaceVariant" style={{ marginTop: 4 }}>
             {loading
-              ? 'Calculating quantities…'
-              : `For ${opts?.headcount} participants. ${checkedCount} of ${totalItems} gathered.`}
+              ? t('checklist.calculating')
+              : t('checklist.progress', { headcount: opts?.headcount ?? 0, checked: checkedCount, total: totalItems })}
           </AppText>
         </View>
 
@@ -108,7 +108,7 @@ export function ChecklistScreen() {
 
       <View style={[styles.actions, { backgroundColor: colors.background }]}>
         <Button
-          label="Start Pooja"
+          label={t('checklist.startPooja')}
           icon="play-circle"
           iconPosition="right"
           onPress={() => navigation.navigate('Walkthrough', { id: pooja.id })}
