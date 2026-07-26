@@ -6,11 +6,13 @@ import { Screen } from '@/components/ui/screen';
 import { SelectableRow } from '@/components/ui/selectable-row';
 import { TopBar } from '@/components/ui/top-bar';
 import { Spacing } from '@/constants/theme';
+import { useTranslation } from '@/lib/i18n';
 import { LANGUAGES, usePrefs } from '@/lib/prefs-context';
 import { useAppNavigation, useAppRoute } from '@/navigation/hooks';
 
 export function LanguageScreen() {
   const { languageCode, setLanguageCode } = usePrefs();
+  const { t } = useTranslation();
   const navigation = useAppNavigation();
   const route = useAppRoute('Language');
   const fromSettings = route.params?.from === 'settings';
@@ -21,10 +23,10 @@ export function LanguageScreen() {
       <View style={styles.content}>
         <View style={styles.header}>
           <AppText variant="headlineLgMobile" center>
-            Choose your language
+            {t('language.title')}
           </AppText>
           <AppText variant="bodyMd" color="onSurfaceVariant" center style={{ marginTop: 8 }}>
-            Select the language for your spiritual journey
+            {t('language.subtitle')}
           </AppText>
         </View>
 
@@ -41,7 +43,7 @@ export function LanguageScreen() {
         </View>
 
         <Button
-          label={fromSettings ? 'Save' : 'Continue'}
+          label={t(fromSettings ? 'common.save' : 'common.continue')}
           icon={fromSettings ? undefined : 'arrow-forward'}
           iconPosition="right"
           onPress={() => (fromSettings ? navigation.goBack() : navigation.navigate('Tradition'))}

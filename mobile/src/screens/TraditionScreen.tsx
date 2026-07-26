@@ -6,12 +6,14 @@ import { Icon } from '@/components/ui/icon';
 import { Screen } from '@/components/ui/screen';
 import { TopBar } from '@/components/ui/top-bar';
 import { Radius, Spacing } from '@/constants/theme';
+import { localize, useTranslation } from '@/lib/i18n';
 import { TRADITIONS, usePrefs } from '@/lib/prefs-context';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation, useAppRoute } from '@/navigation/hooks';
 
 export function TraditionScreen() {
   const { colors } = useAppTheme();
+  const { t, languageCode } = useTranslation();
   const { traditionId, setTraditionId } = usePrefs();
   const navigation = useAppNavigation();
   const route = useAppRoute('Tradition');
@@ -23,19 +25,18 @@ export function TraditionScreen() {
       <View style={styles.content}>
         <View style={styles.header}>
           <AppText variant="headlineLgMobile" center>
-            Select your tradition
+            {t('tradition.title')}
           </AppText>
           <AppText variant="bodyMd" color="onSurfaceVariant" center style={{ marginTop: 8 }}>
-            Customize your ritual experience based on your regional practices. You can always change this later in
-            settings.
+            {t('tradition.subtitle')}
           </AppText>
         </View>
 
         <View style={{ flex: 1, gap: Spacing.gutter }}>
-          {TRADITIONS.map((t) => {
-            const selected = traditionId === t.id;
+          {TRADITIONS.map((tr) => {
+            const selected = traditionId === tr.id;
             return (
-              <Pressable key={t.id} onPress={() => setTraditionId(t.id)}>
+              <Pressable key={tr.id} onPress={() => setTraditionId(tr.id)}>
                 <View
                   style={[
                     styles.card,
@@ -47,7 +48,7 @@ export function TraditionScreen() {
                 >
                   <View style={styles.cardTop}>
                     <View style={[styles.iconWrap, { backgroundColor: colors.surfaceContainerHigh }]}>
-                      <Icon name={t.icon} color={colors.primaryContainer} size={22} />
+                      <Icon name={tr.icon} color={colors.primaryContainer} size={22} />
                     </View>
                     <View
                       style={[
@@ -62,10 +63,10 @@ export function TraditionScreen() {
                     </View>
                   </View>
                   <AppText variant="headlineMd" style={{ marginTop: 12 }}>
-                    {t.label}
+                    {localize(tr.label, languageCode)}
                   </AppText>
                   <AppText variant="bodyMd" color="onSurfaceVariant" style={{ marginTop: 4 }}>
-                    {t.description}
+                    {localize(tr.description, languageCode)}
                   </AppText>
                 </View>
               </Pressable>
@@ -74,7 +75,7 @@ export function TraditionScreen() {
         </View>
 
         <Button
-          label={fromSettings ? 'Save' : 'Continue'}
+          label={t(fromSettings ? 'common.save' : 'common.continue')}
           onPress={() => (fromSettings ? navigation.goBack() : navigation.navigate('Auth'))}
         />
       </View>

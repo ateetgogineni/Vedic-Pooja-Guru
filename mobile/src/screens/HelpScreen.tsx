@@ -8,28 +8,22 @@ import { Screen } from '@/components/ui/screen';
 import { TextField } from '@/components/ui/text-field';
 import { TopBar } from '@/components/ui/top-bar';
 import { Radius, Spacing } from '@/constants/theme';
+import { useTranslation } from '@/lib/i18n';
 import { useAppTheme } from '@/lib/theme-context';
 
-const FAQS = [
-  {
-    q: 'How do I start a new pooja ritual?',
-    a: 'Navigate to the Library tab and browse through the available poojas. Once you select a ritual, review the required materials before tapping "Start Now" or "Plan This Pooja" to enter the guided experience.',
-  },
-  {
-    q: 'What do I do if I miss a step during the guided ritual?',
-    a: 'During any guided ritual, use the "Previous" button at the bottom of the screen to go back as many steps as needed without losing your overall progress.',
-  },
-  {
-    q: 'Can I use the app offline?',
-    a: 'Pooja content and your saved checklist work offline once loaded. The AI assistant and account sync require an active internet connection.',
-  },
-];
+const FAQ_KEYS = [
+  { qKey: 'help.faq1Q', aKey: 'help.faq1A' },
+  { qKey: 'help.faq2Q', aKey: 'help.faq2A' },
+  { qKey: 'help.faq3Q', aKey: 'help.faq3A' },
+] as const;
 
 export function HelpScreen() {
   const { colors } = useAppTheme();
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState<number | null>(null);
   const [query, setQuery] = useState('');
 
+  const FAQS = FAQ_KEYS.map(({ qKey, aKey }) => ({ q: t(qKey), a: t(aKey) }));
   const filtered = FAQS.filter(
     (f) => !query || f.q.toLowerCase().includes(query.toLowerCase()) || f.a.toLowerCase().includes(query.toLowerCase()),
   );
@@ -40,18 +34,18 @@ export function HelpScreen() {
       <View style={styles.content}>
         <View>
           <AppText variant="headlineLgMobile" center>
-            Help & Support
+            {t('help.title')}
           </AppText>
           <AppText variant="bodyLg" color="onSurfaceVariant" center style={{ marginTop: 8 }}>
-            Find answers to common questions about your spiritual journey or reach out for guidance.
+            {t('help.subtitle')}
           </AppText>
         </View>
 
-        <TextField placeholder="Search for answers…" value={query} onChangeText={setQuery} />
+        <TextField placeholder={t('help.searchPlaceholder')} value={query} onChangeText={setQuery} />
 
         <View>
           <AppText variant="headlineMd" style={{ marginBottom: Spacing.gutter }}>
-            Frequently Asked Questions
+            {t('help.faqTitle')}
           </AppText>
           <View style={{ gap: Spacing.gutter }}>
             {filtered.map((faq, i) => {
@@ -80,13 +74,13 @@ export function HelpScreen() {
             <Icon name="support-agent" color={colors.primary} size={28} />
           </View>
           <AppText variant="headlineMd" center>
-            Need more guidance?
+            {t('help.needMoreGuidance')}
           </AppText>
           <AppText variant="bodyMd" color="onSurfaceVariant" center style={{ marginTop: 4, marginBottom: Spacing.gutter }}>
-            Our dedicated spiritual guides and technical support team are here to assist you.
+            {t('help.supportBody')}
           </AppText>
           <Button
-            label="Contact Support"
+            label={t('help.contactSupport')}
             fullWidth={false}
             onPress={() => Linking.openURL('mailto:support@vedicvidhi.app')}
           />

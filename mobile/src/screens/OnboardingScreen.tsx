@@ -6,29 +6,19 @@ import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { Screen } from '@/components/ui/screen';
 import { Spacing } from '@/constants/theme';
+import { useTranslation } from '@/lib/i18n';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation } from '@/navigation/hooks';
 
 const SLIDES = [
-  {
-    icon: 'auto-awesome',
-    title: 'Guided by AI, rooted in tradition',
-    body: 'A virtual priest’s assistant that walks you through every step, grounded in verified vidhi — never improvised.',
-  },
-  {
-    icon: 'inventory-2',
-    title: 'Know exactly what you need',
-    body: 'Tell us your headcount and we calculate the exact samagri quantities for your pooja, automatically.',
-  },
-  {
-    icon: 'mic',
-    title: 'Ask anything, hands-free',
-    body: 'Mid-ritual doubts happen. Ask your AI assistant by voice without ever putting down the diya.',
-  },
-];
+  { icon: 'auto-awesome', titleKey: 'onboarding.slide1Title', bodyKey: 'onboarding.slide1Body' },
+  { icon: 'inventory-2', titleKey: 'onboarding.slide2Title', bodyKey: 'onboarding.slide2Body' },
+  { icon: 'mic', titleKey: 'onboarding.slide3Title', bodyKey: 'onboarding.slide3Body' },
+] as const;
 
 export function OnboardingScreen() {
   const { colors } = useAppTheme();
+  const { t } = useTranslation();
   const navigation = useAppNavigation();
   const [index, setIndex] = useState(0);
   const slide = SLIDES[index];
@@ -47,7 +37,7 @@ export function OnboardingScreen() {
       <View style={styles.skipRow}>
         <Pressable onPress={() => navigation.navigate('Language')}>
           <AppText variant="labelSm" color="onSurfaceVariant">
-            SKIP
+            {t('onboarding.skip')}
           </AppText>
         </Pressable>
       </View>
@@ -57,17 +47,17 @@ export function OnboardingScreen() {
           <Icon name={slide.icon} size={56} color={colors.primaryContainer} />
         </View>
         <AppText variant="headlineLgMobile" center style={{ marginTop: Spacing.stackLg }}>
-          {slide.title}
+          {t(slide.titleKey)}
         </AppText>
         <AppText variant="bodyMd" color="onSurfaceVariant" center style={{ marginTop: Spacing.stackSm, maxWidth: 320 }}>
-          {slide.body}
+          {t(slide.bodyKey)}
         </AppText>
       </View>
 
       <View style={styles.dotsRow}>
         {SLIDES.map((s, i) => (
           <View
-            key={s.title}
+            key={s.titleKey}
             style={[
               styles.dot,
               { backgroundColor: i === index ? colors.primaryContainer : colors.surfaceContainerHigh, width: i === index ? 20 : 8 },
@@ -76,7 +66,7 @@ export function OnboardingScreen() {
         ))}
       </View>
 
-      <Button label={isLast ? 'Get Started' : 'Next'} icon="arrow-forward" iconPosition="right" onPress={next} />
+      <Button label={t(isLast ? 'onboarding.getStarted' : 'onboarding.next')} icon="arrow-forward" iconPosition="right" onPress={next} />
     </Screen>
   );
 }

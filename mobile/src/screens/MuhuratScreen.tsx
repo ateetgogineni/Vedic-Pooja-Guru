@@ -7,11 +7,13 @@ import { Screen } from '@/components/ui/screen';
 import { TopBar } from '@/components/ui/top-bar';
 import { Radius, Spacing } from '@/constants/theme';
 import { getPoojaById } from '@/data/poojas';
+import { useTranslation } from '@/lib/i18n';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation, useAppRoute } from '@/navigation/hooks';
 
 export function MuhuratScreen() {
   const { colors } = useAppTheme();
+  const { t } = useTranslation();
   const navigation = useAppNavigation();
   const { id } = useAppRoute('Muhurat').params;
   const pooja = getPoojaById(id);
@@ -23,18 +25,17 @@ export function MuhuratScreen() {
       <View style={styles.content}>
         <View>
           <AppText variant="headlineLgMobile" center>
-            Best time for this pooja
+            {t('muhurat.title')}
           </AppText>
           <AppText variant="bodyMd" color="onSurfaceVariant" center style={{ marginTop: 8 }}>
-            Sample muhurat based on typical planetary alignments — full location-aware calculation lands in a later
-            phase.
+            {t('muhurat.subtitle')}
           </AppText>
         </View>
 
         <View style={[styles.card, { backgroundColor: colors.softSand, borderColor: colors.outlineVariant }]}>
           <Icon name="wb-sunny" color={colors.muhuratAmber} size={40} />
           <AppText variant="labelSm" color="primary" style={{ marginTop: Spacing.gutter, letterSpacing: 1 }}>
-            RECOMMENDED
+            {t('muhurat.recommended')}
           </AppText>
           <AppText variant="headlineMd" style={{ marginTop: 4 }}>
             Thursday, July 30th
@@ -53,11 +54,10 @@ export function MuhuratScreen() {
             <Icon name="info" color={colors.sacredGreen} size={20} />
             <View style={{ flex: 1 }}>
               <AppText variant="labelSm" color="onSurfaceVariant" style={{ marginBottom: 4 }}>
-                Brahma Muhurta & Shukla Paksha
+                {t('muhurat.infoLabel')}
               </AppText>
               <AppText variant="bodyMd" color="onSurfaceVariant">
-                This time aligns with the early morning purity of Brahma Muhurta during the auspicious Shukla Paksha
-                (waxing moon phase), ideal for new beginnings.
+                {t('muhurat.infoBody')}
               </AppText>
             </View>
           </View>
@@ -65,7 +65,7 @@ export function MuhuratScreen() {
 
         <View style={{ flex: 1 }} />
         <Button
-          label="Continue to Preparation"
+          label={t('muhurat.continueToPreparation')}
           icon="arrow-forward"
           iconPosition="right"
           onPress={() => navigation.navigate('Headcount', { id: pooja.id })}

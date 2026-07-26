@@ -1,8 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 
+import type { Localized } from '@/lib/i18n';
+
 export type Language = { code: string; label: string; nativeLabel: string };
-export type Tradition = { id: string; label: string; description: string; icon: string };
+export type Tradition = { id: string; label: Localized; description: Localized; icon: string };
 
 export const LANGUAGES: Language[] = [
   { code: 'en', label: 'English', nativeLabel: 'English' },
@@ -17,26 +19,38 @@ export const LANGUAGES: Language[] = [
 export const TRADITIONS: Tradition[] = [
   {
     id: 'north_indian',
-    label: 'North Indian',
-    description: 'Includes practices typical of UP, Punjab, Rajasthan, and surrounding regions.',
+    label: { en: 'North Indian', te: 'ఉత్తర భారత' },
+    description: {
+      en: 'Includes practices typical of UP, Punjab, Rajasthan, and surrounding regions.',
+      te: 'యుపి, పంజాబ్, రాజస్థాన్ మరియు పరిసర ప్రాంతాల సాధారణ ఆచారాలను కలిగి ఉంటుంది.',
+    },
     icon: 'temple-hindu',
   },
   {
     id: 'south_indian',
-    label: 'South Indian',
-    description: 'Encompasses Tamil, Telugu, Kannada, and Malayali ritual protocols.',
+    label: { en: 'South Indian', te: 'దక్షిణ భారత' },
+    description: {
+      en: 'Encompasses Tamil, Telugu, Kannada, and Malayali ritual protocols.',
+      te: 'తమిళ, తెలుగు, కన్నడ మరియు మలయాళీ పూజా సంప్రదాయాలను కలిగి ఉంటుంది.',
+    },
     icon: 'local-florist',
   },
   {
     id: 'bengali',
-    label: 'Bengali',
-    description: 'Focuses on Shaktism and eastern regional variations of pooja.',
+    label: { en: 'Bengali', te: 'బెంగాలీ' },
+    description: {
+      en: 'Focuses on Shaktism and eastern regional variations of pooja.',
+      te: 'శాక్తేయ సంప్రదాయం మరియు తూర్పు ప్రాంతీయ పూజా విధానాలపై దృష్టి పెడుతుంది.',
+    },
     icon: 'festival',
   },
   {
     id: 'maharashtrian',
-    label: 'Maharashtrian',
-    description: 'Tailored to western Indian practices and specific deity worship styles.',
+    label: { en: 'Maharashtrian', te: 'మహారాష్ట్ర' },
+    description: {
+      en: 'Tailored to western Indian practices and specific deity worship styles.',
+      te: 'పశ్చిమ భారత ఆచారాలు మరియు నిర్దిష్ట దేవతా పూజా విధానాలకు అనుగుణంగా ఉంటుంది.',
+    },
     icon: 'diversity-3',
   },
 ];

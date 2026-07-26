@@ -13,7 +13,7 @@ type Props = {
   right?: React.ReactNode;
 };
 
-export function TopBar({ title = 'Vedic Vidhi', showBack = true, onBack, right }: Props) {
+export function TopBar({ title = 'Vedic Pooja Guru', showBack = true, onBack, right }: Props) {
   const { colors } = useAppTheme();
   const navigation = useAppNavigation();
 

@@ -9,6 +9,7 @@ import { Screen } from '@/components/ui/screen';
 import { TextField } from '@/components/ui/text-field';
 import { Spacing } from '@/constants/theme';
 import { useAuth } from '@/lib/auth-context';
+import { useTranslation } from '@/lib/i18n';
 import { isSupabaseConfigured } from '@/lib/supabase';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation, type AppNavigation } from '@/navigation/hooks';
@@ -22,6 +23,7 @@ async function finishOnboarding(navigation: AppNavigation) {
 
 export function AuthScreen() {
   const { colors } = useAppTheme();
+  const { t } = useTranslation();
   const navigation = useAppNavigation();
   const { signInWithPassword, signUpWithPassword, continueAsGuest } = useAuth();
   const [mode, setMode] = useState<'signIn' | 'signUp'>('signIn');
@@ -31,27 +33,24 @@ export function AuthScreen() {
 
   const submit = async () => {
     if (!isSupabaseConfigured) {
-      Alert.alert(
-        'Backend not connected yet',
-        'The database has not been set up yet. Run schema.sql in Supabase and add the project URL/key to mobile/.env — see mobile/README.md. Continuing as guest for now.',
-      );
+      Alert.alert(t('auth.backendNotConnectedTitle'), t('auth.backendNotConnectedBody'));
       continueAsGuest();
       finishOnboarding(navigation);
       return;
     }
     if (!email || !password) {
-      Alert.alert('Missing info', 'Please enter both an email and a password.');
+      Alert.alert(t('auth.missingInfoTitle'), t('auth.missingInfoBody'));
       return;
     }
     setLoading(true);
     const { error } = mode === 'signIn' ? await signInWithPassword(email, password) : await signUpWithPassword(email, password);
     setLoading(false);
     if (error) {
-      Alert.alert(mode === 'signIn' ? 'Could not sign in' : 'Could not sign up', error);
+      Alert.alert(t(mode === 'signIn' ? 'auth.couldNotSignIn' : 'auth.couldNotSignUp'), error);
       return;
     }
     if (mode === 'signUp') {
-      Alert.alert('Check your inbox', 'Confirm your email if required, then sign in.');
+      Alert.alert(t('auth.checkInboxTitle'), t('auth.checkInboxBody'));
       setMode('signIn');
       return;
     }
@@ -68,44 +67,44 @@ export function AuthScreen() {
       <View style={styles.logoBlock}>
         <AppText style={{ fontSize: 40 }}>🪔</AppText>
         <AppText variant="mantraDisplay" color="primary" center style={{ marginTop: 8 }}>
-          Vedic Vidhi
+          Vedic Pooja Guru
         </AppText>
       </View>
 
       <View style={styles.welcomeBlock}>
         <AppText variant="headlineLgMobile" center>
-          Namaste.
+          {t('auth.namaste')}
         </AppText>
         <AppText variant="bodyMd" color="onSurfaceVariant" center style={{ marginTop: 8 }}>
-          Welcome back to your sanctuary.
+          {t('auth.welcomeBack')}
         </AppText>
       </View>
 
       <Card style={{ gap: Spacing.stackMd }}>
         <TextField
-          label="Email"
-          placeholder="Enter your email"
+          label={t('auth.email')}
+          placeholder={t('auth.enterEmail')}
           autoCapitalize="none"
           keyboardType="email-address"
           value={email}
           onChangeText={setEmail}
         />
         <TextField
-          label="Password"
+          label={t('auth.password')}
           placeholder="••••••••"
           secureTextEntry
           value={password}
           onChangeText={setPassword}
         />
-        <Button label={mode === 'signIn' ? 'Sign In' : 'Create Account'} onPress={submit} loading={loading} />
+        <Button label={t(mode === 'signIn' ? 'auth.signIn' : 'auth.createAccount')} onPress={submit} loading={loading} />
         <AppText variant="bodyMd" color="onSurfaceVariant" center>
-          {mode === 'signIn' ? 'New here? ' : 'Already have an account? '}
+          {t(mode === 'signIn' ? 'auth.newHere' : 'auth.alreadyHaveAccount')}
           <AppText
             variant="bodyMd"
             color="primaryContainer"
             onPress={() => setMode(mode === 'signIn' ? 'signUp' : 'signIn')}
           >
-            {mode === 'signIn' ? 'Create Account' : 'Sign In'}
+            {t(mode === 'signIn' ? 'auth.createAccount' : 'auth.signIn')}
           </AppText>
         </AppText>
       </Card>
@@ -113,19 +112,19 @@ export function AuthScreen() {
       <View style={styles.dividerRow}>
         <View style={[styles.divider, { backgroundColor: colors.outlineVariant }]} />
         <AppText variant="labelSm" color="onSurfaceVariant">
-          OR
+          {t('auth.or')}
         </AppText>
         <View style={[styles.divider, { backgroundColor: colors.outlineVariant }]} />
       </View>
 
       <View style={{ gap: Spacing.gutter }}>
         <Button
-          label="Continue with Google"
+          label={t('auth.continueWithGoogle')}
           variant="secondary"
           icon="account-circle"
-          onPress={() => Alert.alert('Coming soon', 'Google sign-in will be available in a future update.')}
+          onPress={() => Alert.alert(t('common.comingSoon'), t('auth.googleComingSoonBody'))}
         />
-        <Button label="Continue as Guest" variant="text" onPress={guest} />
+        <Button label={t('auth.continueAsGuest')} variant="text" onPress={guest} />
       </View>
     </Screen>
   );

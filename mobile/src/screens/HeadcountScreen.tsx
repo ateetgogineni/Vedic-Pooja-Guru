@@ -10,15 +10,15 @@ import { TopBar } from '@/components/ui/top-bar';
 import { Radius, Spacing } from '@/constants/theme';
 import { getPoojaById, localize } from '@/data/poojas';
 import { useAuth } from '@/lib/auth-context';
+import { useTranslation } from '@/lib/i18n';
 import { loadPlanningOptions, savePlanningOptions } from '@/lib/plan-store';
-import { usePrefs } from '@/lib/prefs-context';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation, useAppRoute } from '@/navigation/hooks';
 
 export function HeadcountScreen() {
   const { colors } = useAppTheme();
   const { user } = useAuth();
-  const { languageCode } = usePrefs();
+  const { t, languageCode } = useTranslation();
   const navigation = useAppNavigation();
   const { id } = useAppRoute('Headcount').params;
   const pooja = getPoojaById(id);
@@ -54,11 +54,10 @@ export function HeadcountScreen() {
       <View style={styles.content}>
         <View style={styles.header}>
           <AppText variant="headlineLgMobile" color="primary" center>
-            How many people?
+            {t('headcount.title')}
           </AppText>
           <AppText variant="bodyMd" color="onSurfaceVariant" center style={{ marginTop: 8 }}>
-            Select the number of participants to accurately calculate the required samagri (items) for{' '}
-            {localize(pooja.name, languageCode)}.
+            {t('headcount.subtitle', { name: localize(pooja.name, languageCode) })}
           </AppText>
         </View>
 
@@ -74,7 +73,7 @@ export function HeadcountScreen() {
               {headcount}
             </AppText>
             <AppText variant="labelSm" color="onSurfaceVariant" style={{ marginTop: 4 }}>
-              PARTICIPANTS
+              {t('headcount.participants')}
             </AppText>
           </View>
           <Pressable
@@ -88,22 +87,22 @@ export function HeadcountScreen() {
         <View>
           <ToggleRow
             icon="human-child"
-            title="Include children"
-            subtitle="Adjusts prasad quantities"
+            title={t('headcount.includeChildren')}
+            subtitle={t('headcount.includeChildrenSubtitle')}
             value={includeChildren}
             onChange={setIncludeChildren}
           />
           <ToggleRow
             icon="diversity-3"
-            title="Extended family"
-            subtitle="Adds seating & extra items"
+            title={t('headcount.extendedFamily')}
+            subtitle={t('headcount.extendedFamilySubtitle')}
             value={extendedFamily}
             onChange={setExtendedFamily}
           />
         </View>
 
         <View style={{ flex: 1 }} />
-        <Button label="Calculate Items" onPress={onCalculate} loading={saving} />
+        <Button label={t('headcount.calculateItems')} onPress={onCalculate} loading={saving} />
       </View>
     </Screen>
   );

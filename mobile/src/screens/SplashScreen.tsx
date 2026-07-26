@@ -5,6 +5,7 @@ import { Animated, Easing, StyleSheet, View } from 'react-native';
 import { AppText } from '@/components/ui/app-text';
 import { Screen } from '@/components/ui/screen';
 import { Spacing } from '@/constants/theme';
+import { useTranslation } from '@/lib/i18n';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation } from '@/navigation/hooks';
 
@@ -12,6 +13,7 @@ const ONBOARDING_KEY = 'vedic-vidhi.onboarding-complete';
 
 export function SplashScreen() {
   const { colors } = useAppTheme();
+  const { t } = useTranslation();
   const navigation = useAppNavigation();
   const float = useRef(new Animated.Value(0)).current;
 
@@ -45,10 +47,10 @@ export function SplashScreen() {
         </Animated.View>
         <View style={styles.textBlock}>
           <AppText variant="mantraDisplay" color="secondary" center>
-            Vedic Vidhi
+            Vedic Pooja Guru
           </AppText>
           <AppText variant="bodyMd" color="onSurfaceVariant" center style={{ marginTop: 8, opacity: 0.8 }}>
-            Your Virtual Priest’s Assistant
+            {t('splash.tagline')}
           </AppText>
         </View>
       </View>
@@ -59,7 +61,7 @@ export function SplashScreen() {
           <View style={[styles.dot, { backgroundColor: colors.muhuratAmber, opacity: 0.5 }]} />
         </View>
         <AppText variant="labelSm" color="outline" style={{ marginTop: 12, letterSpacing: 2 }}>
-          PREPARING SANCTUARY
+          {t('splash.preparing')}
         </AppText>
       </View>
     </Screen>
