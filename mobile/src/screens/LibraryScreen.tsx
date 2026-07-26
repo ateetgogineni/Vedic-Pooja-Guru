@@ -4,12 +4,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppText } from '@/components/ui/app-text';
 import { Icon } from '@/components/ui/icon';
 import { Radius, Spacing } from '@/constants/theme';
-import { poojas } from '@/data/poojas';
+import { localize, poojas } from '@/data/poojas';
+import { usePrefs } from '@/lib/prefs-context';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation } from '@/navigation/hooks';
 
 export function LibraryScreen() {
   const { colors } = useAppTheme();
+  const { languageCode } = usePrefs();
   const navigation = useAppNavigation();
 
   return (
@@ -40,18 +42,18 @@ export function LibraryScreen() {
               </View>
               <View style={{ flex: 1, gap: 4 }}>
                 <AppText variant="labelSm" color="sacredGreen">
-                  {p.tagline.toUpperCase()}
+                  {localize(p.tagline, languageCode).toUpperCase()}
                 </AppText>
                 <AppText variant="bodyLg" style={{ fontWeight: '600' }}>
-                  {p.name}
+                  {localize(p.name, languageCode)}
                 </AppText>
                 <AppText variant="bodyMd" color="onSurfaceVariant" numberOfLines={2}>
-                  {p.description}
+                  {localize(p.description, languageCode)}
                 </AppText>
                 <View style={styles.metaRow}>
                   <Icon name="schedule" color={colors.onSurfaceVariant} size={14} />
                   <AppText variant="labelSm" color="onSurfaceVariant">
-                    {p.durationLabel}
+                    {localize(p.durationLabel, languageCode)}
                   </AppText>
                   {!hasContent ? (
                     <AppText variant="labelSm" color="muhuratAmber" style={{ marginLeft: 8 }}>

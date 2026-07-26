@@ -5,13 +5,15 @@ import { AppText } from '@/components/ui/app-text';
 import { Icon } from '@/components/ui/icon';
 import { Screen } from '@/components/ui/screen';
 import { Radius, Spacing } from '@/constants/theme';
-import { getPoojaById } from '@/data/poojas';
+import { getPoojaById, localize } from '@/data/poojas';
+import { usePrefs } from '@/lib/prefs-context';
 import { useAppTheme } from '@/lib/theme-context';
 import * as tts from '@/lib/tts';
 import { useAppNavigation, useAppRoute } from '@/navigation/hooks';
 
 export function WalkthroughScreen() {
   const { colors } = useAppTheme();
+  const { languageCode } = usePrefs();
   const navigation = useAppNavigation();
   const { id } = useAppRoute('Walkthrough').params;
   const pooja = getPoojaById(id);
@@ -22,9 +24,9 @@ export function WalkthroughScreen() {
 
   useEffect(() => {
     if (!step || muted) return;
-    tts.speak(`${step.title}. ${step.instruction}`);
+    tts.speak(`${localize(step.title, languageCode)}. ${localize(step.instruction, languageCode)}`, languageCode);
     return () => tts.stop();
-  }, [step, muted]);
+  }, [step, muted, languageCode]);
 
   useEffect(() => () => tts.stop(), []);
 
@@ -60,10 +62,10 @@ export function WalkthroughScreen() {
           <Icon name="local-fire-department" size={80} color={colors.muhuratAmber} />
         </View>
         <AppText variant="headlineLgMobile" center style={{ marginTop: Spacing.stackLg }}>
-          {step.title}
+          {localize(step.title, languageCode)}
         </AppText>
         <AppText variant="bodyLg" color="onSurfaceVariant" center style={{ marginTop: Spacing.stackSm }}>
-          {step.instruction}
+          {localize(step.instruction, languageCode)}
         </AppText>
         {step.mantra ? (
           <View style={[styles.mantraBox, { backgroundColor: colors.surfaceContainer, borderColor: colors.surfaceContainerHigh }]}>
@@ -99,7 +101,7 @@ export function WalkthroughScreen() {
       </View>
 
       <Pressable
-        onPress={() => navigation.navigate('Chat', { id: pooja.id, step: step.title })}
+        onPress={() => navigation.navigate('Chat', { id: pooja.id, step: localize(step.title, languageCode) })}
         style={[styles.fab, { backgroundColor: colors.primaryContainer }]}
       >
         <Icon name="mic" color={colors.onPrimary} size={26} />

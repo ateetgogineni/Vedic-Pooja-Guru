@@ -5,13 +5,15 @@ import { AppText } from '@/components/ui/app-text';
 import { Icon } from '@/components/ui/icon';
 import { IconBadge } from '@/components/ui/icon-badge';
 import { Radius, Spacing } from '@/constants/theme';
-import { poojas } from '@/data/poojas';
+import { localize, poojas } from '@/data/poojas';
 import { useAuth } from '@/lib/auth-context';
+import { usePrefs } from '@/lib/prefs-context';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation } from '@/navigation/hooks';
 
 export function HomeScreen() {
   const { colors } = useAppTheme();
+  const { languageCode } = usePrefs();
   const navigation = useAppNavigation();
   const { user, isGuest } = useAuth();
   const name = isGuest ? 'Guest' : user?.email?.split('@')[0] || 'Friend';
@@ -125,15 +127,15 @@ export function HomeScreen() {
                 </View>
                 <View style={{ padding: Spacing.gutter, gap: 4 }}>
                   <AppText variant="labelSm" color="sacredGreen">
-                    {p.tagline.toUpperCase()}
+                    {localize(p.tagline, languageCode).toUpperCase()}
                   </AppText>
                   <AppText variant="bodyLg" style={{ fontWeight: '600' }}>
-                    {p.name}
+                    {localize(p.name, languageCode)}
                   </AppText>
                   <View style={styles.durationRow}>
                     <Icon name="schedule" color={colors.onSurfaceVariant} size={16} />
                     <AppText variant="bodyMd" color="onSurfaceVariant">
-                      {p.durationLabel}
+                      {localize(p.durationLabel, languageCode)}
                     </AppText>
                   </View>
                 </View>

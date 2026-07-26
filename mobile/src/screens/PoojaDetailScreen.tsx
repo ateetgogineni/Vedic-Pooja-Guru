@@ -7,12 +7,14 @@ import { Icon } from '@/components/ui/icon';
 import { Screen } from '@/components/ui/screen';
 import { TopBar } from '@/components/ui/top-bar';
 import { Radius, Spacing } from '@/constants/theme';
-import { getPoojaById } from '@/data/poojas';
+import { getPoojaById, localize } from '@/data/poojas';
+import { usePrefs } from '@/lib/prefs-context';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation, useAppRoute } from '@/navigation/hooks';
 
 export function PoojaDetailScreen() {
   const { colors } = useAppTheme();
+  const { languageCode } = usePrefs();
   const navigation = useAppNavigation();
   const { id } = useAppRoute('PoojaDetail').params;
   const pooja = getPoojaById(id);
@@ -32,7 +34,8 @@ export function PoojaDetailScreen() {
   const previewItems = pooja.items.slice(0, 3);
   const remaining = pooja.items.length - previewItems.length;
 
-  const notReady = () => Alert.alert('Coming soon', `${pooja.name} guidance is on the roadmap for a future update.`);
+  const notReady = () =>
+    Alert.alert('Coming soon', `${localize(pooja.name, languageCode)} guidance is on the roadmap for a future update.`);
 
   return (
     <Screen scroll edges={['top']} contentStyle={{ paddingBottom: 140 }}>
@@ -43,24 +46,24 @@ export function PoojaDetailScreen() {
 
       <View style={styles.body}>
         <AppText variant="headlineLgMobile" center>
-          {pooja.name}
+          {localize(pooja.name, languageCode)}
         </AppText>
         <AppText variant="bodyLg" color="onSurfaceVariant" center style={{ marginTop: Spacing.stackSm }}>
-          {pooja.description}
+          {localize(pooja.description, languageCode)}
         </AppText>
 
         <View style={styles.pillRow}>
           <View style={[styles.pill, { backgroundColor: colors.softSand, borderColor: colors.surfaceContainerHigh }]}>
             <Icon name="schedule" color={colors.primary} size={16} />
-            <AppText variant="labelSm">{pooja.durationLabel}</AppText>
+            <AppText variant="labelSm">{localize(pooja.durationLabel, languageCode)}</AppText>
           </View>
           <View style={[styles.pill, { backgroundColor: colors.softSand, borderColor: colors.surfaceContainerHigh }]}>
             <Icon name="spa" color={colors.sacredGreen} size={16} />
-            <AppText variant="labelSm">{pooja.difficulty}</AppText>
+            <AppText variant="labelSm">{localize(pooja.difficulty, languageCode)}</AppText>
           </View>
           <View style={[styles.pill, { backgroundColor: colors.softSand, borderColor: colors.surfaceContainerHigh }]}>
             <Icon name="wb-twilight" color={colors.muhuratAmber} size={16} />
-            <AppText variant="labelSm">{pooja.timing}</AppText>
+            <AppText variant="labelSm">{localize(pooja.timing, languageCode)}</AppText>
           </View>
         </View>
 
@@ -90,7 +93,7 @@ export function PoojaDetailScreen() {
                     <Icon name={item.icon} color={colors.primary} size={24} />
                   </View>
                   <AppText variant="labelSm" color="onSurfaceVariant" center numberOfLines={1}>
-                    {item.name}
+                    {localize(item.name, languageCode)}
                   </AppText>
                 </View>
               ))}
@@ -111,8 +114,8 @@ export function PoojaDetailScreen() {
         ) : (
           <Card style={{ marginTop: Spacing.stackLg, alignItems: 'center' }}>
             <AppText variant="bodyMd" color="onSurfaceVariant" center>
-              Full step-by-step content for {pooja.name} is coming in a future update. Try Ganesh Pooja for the full
-              experience.
+              Full step-by-step content for {localize(pooja.name, languageCode)} is coming in a future update. Try
+              Ganesh Pooja for the full experience.
             </AppText>
           </Card>
         )}

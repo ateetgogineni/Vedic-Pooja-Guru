@@ -11,6 +11,7 @@ export const LANGUAGES: Language[] = [
   { code: 'bn', label: 'Bengali', nativeLabel: 'বাংলা' },
   { code: 'mr', label: 'Marathi', nativeLabel: 'मराठी' },
   { code: 'kn', label: 'Kannada', nativeLabel: 'ಕನ್ನಡ' },
+  { code: 'te', label: 'Telugu', nativeLabel: 'తెలుగు' },
 ];
 
 export const TRADITIONS: Tradition[] = [

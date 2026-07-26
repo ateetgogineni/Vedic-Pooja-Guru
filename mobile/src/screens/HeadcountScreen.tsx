@@ -8,15 +8,17 @@ import { Screen } from '@/components/ui/screen';
 import { ToggleRow } from '@/components/ui/toggle-row';
 import { TopBar } from '@/components/ui/top-bar';
 import { Radius, Spacing } from '@/constants/theme';
-import { getPoojaById } from '@/data/poojas';
+import { getPoojaById, localize } from '@/data/poojas';
 import { useAuth } from '@/lib/auth-context';
 import { loadPlanningOptions, savePlanningOptions } from '@/lib/plan-store';
+import { usePrefs } from '@/lib/prefs-context';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation, useAppRoute } from '@/navigation/hooks';
 
 export function HeadcountScreen() {
   const { colors } = useAppTheme();
   const { user } = useAuth();
+  const { languageCode } = usePrefs();
   const navigation = useAppNavigation();
   const { id } = useAppRoute('Headcount').params;
   const pooja = getPoojaById(id);
@@ -55,7 +57,8 @@ export function HeadcountScreen() {
             How many people?
           </AppText>
           <AppText variant="bodyMd" color="onSurfaceVariant" center style={{ marginTop: 8 }}>
-            Select the number of participants to accurately calculate the required samagri (items) for {pooja.name}.
+            Select the number of participants to accurately calculate the required samagri (items) for{' '}
+            {localize(pooja.name, languageCode)}.
           </AppText>
         </View>
 

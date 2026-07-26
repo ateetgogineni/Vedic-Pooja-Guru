@@ -6,7 +6,8 @@ import { Icon } from '@/components/ui/icon';
 import { TextField } from '@/components/ui/text-field';
 import { TopBar } from '@/components/ui/top-bar';
 import { Radius, Spacing } from '@/constants/theme';
-import { getPoojaById } from '@/data/poojas';
+import { getPoojaById, localize } from '@/data/poojas';
+import { usePrefs } from '@/lib/prefs-context';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppRoute } from '@/navigation/hooks';
 
@@ -23,6 +24,7 @@ const SUGGESTIONS = ['Is it okay to start late?', 'Alternative for Kalash?'];
 
 export function ChatScreen() {
   const { colors } = useAppTheme();
+  const { languageCode } = usePrefs();
   const { id, step } = useAppRoute('Chat').params;
   const pooja = getPoojaById(id);
   const listRef = useRef<FlatList<Message>>(null);
@@ -31,7 +33,7 @@ export function ChatScreen() {
     {
       id: 'seed',
       from: 'assistant',
-      text: `Namaste! Ask me anything about ${pooja?.name ?? 'your pooja'} — item substitutes, timing, or what a step means.`,
+      text: `Namaste! Ask me anything about ${pooja ? localize(pooja.name, languageCode) : 'your pooja'} — item substitutes, timing, or what a step means.`,
     },
   ]);
   const [input, setInput] = useState('');

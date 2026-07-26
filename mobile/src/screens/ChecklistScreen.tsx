@@ -9,9 +9,10 @@ import { Icon } from '@/components/ui/icon';
 import { Screen } from '@/components/ui/screen';
 import { TopBar } from '@/components/ui/top-bar';
 import { Spacing } from '@/constants/theme';
-import { calculateChecklist, getPoojaById, type PlanningOptions } from '@/data/poojas';
+import { CATEGORY_LABELS, calculateChecklist, getPoojaById, localize, type PlanningOptions } from '@/data/poojas';
 import { useAuth } from '@/lib/auth-context';
 import { loadChecklistState, loadPlanningOptions, saveChecklistState } from '@/lib/plan-store';
+import { usePrefs } from '@/lib/prefs-context';
 import { useAppTheme } from '@/lib/theme-context';
 import { useAppNavigation, useAppRoute } from '@/navigation/hooks';
 
@@ -24,6 +25,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 export function ChecklistScreen() {
   const { colors } = useAppTheme();
   const { user } = useAuth();
+  const { languageCode } = usePrefs();
   const navigation = useAppNavigation();
   const { id } = useAppRoute('Checklist').params;
   const pooja = getPoojaById(id);
@@ -70,7 +72,7 @@ export function ChecklistScreen() {
       <View style={styles.content}>
         <View>
           <AppText variant="headlineLgMobile" color="primary">
-            Checklist: {pooja.name}
+            Checklist: {localize(pooja.name, languageCode)}
           </AppText>
           <AppText variant="bodyMd" color="onSurfaceVariant" style={{ marginTop: 4 }}>
             {loading
@@ -85,13 +87,15 @@ export function ChecklistScreen() {
               <View style={[styles.categoryIcon, { backgroundColor: colors.surfaceContainer }]}>
                 <Icon name={CATEGORY_ICONS[group.category] ?? 'inventory-2'} color={colors.primary} size={20} />
               </View>
-              <AppText variant="headlineMd">{group.category}</AppText>
+              <AppText variant="headlineMd">
+                {localize(CATEGORY_LABELS[group.category] ?? { en: group.category }, languageCode)}
+              </AppText>
             </View>
             <View style={{ gap: 4 }}>
               {group.entries.map(({ item, amount, unit }) => (
                 <CheckboxRow
                   key={item.key}
-                  title={item.name}
+                  title={localize(item.name, languageCode)}
                   subtitle={`${amount} ${unit}`}
                   checked={!!checked[item.key]}
                   onToggle={() => toggleItem(item.key)}

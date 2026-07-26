@@ -18,9 +18,30 @@ function initOnce(): Promise<void> {
   return initPromise;
 }
 
-export async function speak(text: string) {
+// BCP-47 tags for the app's supported languages — used to pick a matching
+// device TTS voice when one is installed. Falls back to the device's
+// current default voice if the tag/voice isn't available.
+const LANGUAGE_TAGS: Record<string, string> = {
+  en: 'en-IN',
+  hi: 'hi-IN',
+  ta: 'ta-IN',
+  bn: 'bn-IN',
+  mr: 'mr-IN',
+  kn: 'kn-IN',
+  te: 'te-IN',
+};
+
+export async function speak(text: string, languageCode?: string) {
   await initOnce();
   Tts.stop();
+  const tag = languageCode && LANGUAGE_TAGS[languageCode];
+  if (tag) {
+    try {
+      await Tts.setDefaultLanguage(tag);
+    } catch (err) {
+      console.warn(`[tts] setDefaultLanguage(${tag}) failed — voice may not be installed on this device:`, err);
+    }
+  }
   try {
     await Tts.speak(text);
   } catch (err) {
